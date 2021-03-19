@@ -6,6 +6,7 @@ Total subject with CAP: 721
 Total subject with CAP and mriq: 711
 See participants.tsv to see the subjects details
 
+sex: 0 - female; 1 - male
 
 ## CoActivation Pattern
 

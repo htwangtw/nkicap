@@ -24,7 +24,7 @@ def fetch_dataset():
 
     """
     data_dir = _get_project_path() / "data"
-    participants = _read_tsv(data_dir / PARTICIPANTS)
+    participants = _read_tsv(data_dir / PARTICIPANTS).replace({"sex": {0: "F", 1: "M"}})
     mriq = _read_tsv(data_dir / MRIQ).dropna().dropna()
     occ = _read_tsv(data_dir / CAP_OCC)
     dur = _read_tsv(data_dir / CAP_DUR)

@@ -3,6 +3,6 @@ Data analysis suit of the CAP project
 -------------------------------------
 
 """
+from .utils import load_data
 
-
-__all__ = ["__version__"]
+__all__ = [load_data, "__version__"]
