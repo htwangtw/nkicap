@@ -3,6 +3,7 @@ parse dataset
 """
 from pathlib import Path
 import pandas as pd
+import numpy as np
 
 
 PARTICIPANTS = "enhanced_nki/participants.tsv"
@@ -25,7 +26,7 @@ def fetch_dataset():
     """
     data_dir = _get_project_path() / "data"
     participants = _read_tsv(data_dir / PARTICIPANTS).replace({"sex": {0: "F", 1: "M"}})
-    mriq = _read_tsv(data_dir / MRIQ).dropna().dropna()
+    mriq = _read_tsv(data_dir / MRIQ).replace({"MD": np.nan}).dropna()
     occ = _read_tsv(data_dir / CAP_OCC)
     dur = _read_tsv(data_dir / CAP_DUR)
     roi = _read_tsv(data_dir / CAP_ROI)
