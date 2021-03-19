@@ -1,5 +1,7 @@
 # project
 data/enhanced_nki/
+data/cap.json
+data/enhanced_nki.tsv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
