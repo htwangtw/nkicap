@@ -1,5 +1,8 @@
 # CAP of enhanced NKI resting state data
 
+## Participant
+We are using the cross section NKI dataset (ses-BAS1).
+
 ## CoActivation Pattern
 
 ### Sample, preprocessing & quality control
