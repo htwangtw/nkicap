@@ -1,5 +1,6 @@
 # project
 .vscode
+data/hcp/
 data/enhanced_nki/
 data/cap.json
 data/enhanced_nki.tsv
