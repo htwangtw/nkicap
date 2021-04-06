@@ -97,6 +97,27 @@ colorama = ["colorama (>=0.4.3)"]
 d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
+name = "brainspace"
+version = "0.1.1"
+description = "Cortical gradients and beyond"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+matplotlib = ">=2.0.0"
+nibabel = "*"
+numpy = ">=1.11.0"
+pandas = "*"
+pillow = "*"
+scikit-learn = ">=0.20.0"
+scipy = ">=0.17.0"
+vtk = ">=8.1.0"
+
+[package.extras]
+test = ["pytest", "coverage", "pytest-cov", "coveralls", "numpy (>=1.11.0)", "scipy (>=0.17.0)", "scikit-learn (>=0.20.0)", "matplotlib (>=2.0.0)", "vtk (>=8.1.0)", "nibabel", "pillow", "pandas"]
+
+[[package]]
 name = "cachetools"
 version = "4.2.1"
 description = "Extensible memoizing collections and decorators"
@@ -1020,6 +1041,17 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 brotli = ["brotlipy (>=0.6.0)"]
 
 [[package]]
+name = "vtk"
+version = "9.0.1"
+description = "VTK is an open-source toolkit for 3D computer graphics, image processing, and visualization"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+numpy = ["numpy (>=1.9)"]
+
+[[package]]
 name = "wcwidth"
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -1042,7 +1074,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "b95e4dda1a5d31d1698e4ab0247b5c074cd48b298c5f4bbc04a9caef81e8644a"
+content-hash = "431bd1f2153dc6153f5b7f1a85e81b74107c3cc674c342dd8c094b4d65266a97"
 
 [metadata.files]
 absl-py = [
@@ -1079,6 +1111,10 @@ backcall = [
 ]
 black = [
     {file = "black-20.8b1.tar.gz", hash = "sha256:1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"},
+]
+brainspace = [
+    {file = "brainspace-0.1.1-py3-none-any.whl", hash = "sha256:b2a8d451e2cab94e728898f24d7a76d430d62155d85af9c6976f75e4790580c0"},
+    {file = "brainspace-0.1.1.tar.gz", hash = "sha256:bf289ed3d660faee92c55256331c45b0b76e8716569ed2db83f847e0a980bb73"},
 ]
 cachetools = [
     {file = "cachetools-4.2.1-py3-none-any.whl", hash = "sha256:1d9d5f567be80f7c07d765e21b814326d78c61eb0c3a637dffc0e5d1796cb2e2"},
@@ -1826,6 +1862,19 @@ typing-extensions = [
 urllib3 = [
     {file = "urllib3-1.26.4-py2.py3-none-any.whl", hash = "sha256:2f4da4594db7e1e110a944bb1b551fdf4e6c136ad42e4234131391e21eb5b0df"},
     {file = "urllib3-1.26.4.tar.gz", hash = "sha256:e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"},
+]
+vtk = [
+    {file = "vtk-9.0.1-cp35-cp35m-macosx_10_9_x86_64.whl", hash = "sha256:424d7e6f8a216b7af82c672ebae82bc6e268582f802c7b32684ae9a90ef4c19e"},
+    {file = "vtk-9.0.1-cp35-cp35m-win_amd64.whl", hash = "sha256:3b0873e79365268b3b7d2acb238d2333f73209c27f54b76dc0cdd85483afa82e"},
+    {file = "vtk-9.0.1-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:bd6efb3d3a6ead36e42ab938806364fa7dc858228a1c81e321556e43ff899d89"},
+    {file = "vtk-9.0.1-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:b9d3827bf84ca11a669cf798d2a205d4ca19ed66e15e93ab2ab747f9dbe9edbe"},
+    {file = "vtk-9.0.1-cp36-cp36m-win_amd64.whl", hash = "sha256:cbf17bc5ab7ccbda79458cf241cad8bc790a228dfa15066c50648bfb5d7abeb1"},
+    {file = "vtk-9.0.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:4092bf85e1d02a76ea878bb9b822eb57ec7b73c8826e3ec29f1c8cbddcb312e3"},
+    {file = "vtk-9.0.1-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:11c7b05e2a35ff5724b5c88a90ffaa1de84347ddc8293c1b74158c721db31573"},
+    {file = "vtk-9.0.1-cp37-cp37m-win_amd64.whl", hash = "sha256:e6bfc40f4cdc02f8b869b0c2023b73c6aad86fdb39fcb1823b1f4f5efd1a0001"},
+    {file = "vtk-9.0.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:bd4a066dbb4fb35d329278538976ad4440aeb0e5c839cc12310567238211971c"},
+    {file = "vtk-9.0.1-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:e2ce620b2691ee8770bd9bfc0ae2ca99c0263ded20559c389a10b9b78e7750b2"},
+    {file = "vtk-9.0.1-cp38-cp38-win_amd64.whl", hash = "sha256:cdc7d6d556cf520e6c3c76299125a71d7be5895744ba949e2560d9332e607b50"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
