@@ -13,7 +13,9 @@ from cca_zoo import wrappers
 from nkicap import load_data
 
 
-def plot_demo(datapath="data/enhanced_nki.tsv", basepath="results/descriptive"):
+def plot_demo(
+    datapath="data/enhanced_nki.tsv", basepath="results/descriptive"
+):
     """check demographic"""
     dataset = load_data(datapath=datapath)
     plt.figure()
@@ -22,12 +24,19 @@ def plot_demo(datapath="data/enhanced_nki.tsv", basepath="results/descriptive"):
     plt.savefig(f"{basepath}/demographic.png", dpi=300)
 
 
-def plot_capcorr(datapath="data/enhanced_nki.tsv", basepath="results/descriptive/cap_correlation"):
+def plot_capcorr(
+    datapath="data/enhanced_nki.tsv",
+    basepath="results/descriptive/cap_correlation",
+):
     # check the correlation between occurence and duration
     cap = load_data(keyword="cap", datapath=datapath)
     plt.figure()
     sns.heatmap(
-        cap.corr().iloc[:8, 8:], center=0, annot=True, square=True, linewidths=0.02
+        cap.corr().iloc[:8, 8:],
+        center=0,
+        annot=True,
+        square=True,
+        linewidths=0.02,
     )
     plt.title("CAP correlation")
     plt.tight_layout()
@@ -50,6 +59,31 @@ def _cca(X, Y):
     a = (vx.T).dot(u)
     b = (vy.T).dot(v.T)
     return a, b, s
+
+def plot_corr(
+    datapath="data/enhanced_nki.tsv", basepath="results/descriptive"
+):
+    dataset = load_data(datapath=datapath)
+    sc = spearmanr(dataset.iloc[:, 4:])
+    plt.figure()
+    sns.heatmap(
+        dataset.corr().iloc[-16:, :-16],
+        center=0,
+        annot=False,
+        square=True,
+        linewidths=0.02,
+    )
+    plt.title("correlation")
+    plt.tight_layout()
+    plt.savefig(f"{basepath}/pearsonscorrelation.png", dpi=300)
+
+    sns.heatmap(
+        sc[0][-16:, 2:-16], center=0, annot=False, square=True, linewidths=0.02
+    )
+    plt.title("correlation")
+    plt.tight_layout()
+    plt.savefig(f"{basepath}/spearmanscorrelation.png", dpi=300)
+
 
 def plot_cca(a):
     # plotting
