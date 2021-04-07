@@ -27,7 +27,8 @@ poetry shell
 
 ## Add your analyis
 1. Open an issue at the [upstream repository](https://github.com/htwangtw/nkicap/issues)
-2. Update your fork from the upstream when your main branch is behind. This step is extremely important.
+2. Update your fork from the upstream when your main branch is behind. 
+This step is extremely important for avoiding merge conflicts.
 On your main branch:
 ```
 git remote add upstream https://github.com/htwangtw/nkicap.git
