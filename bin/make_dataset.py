@@ -1,9 +1,12 @@
 """
 Get CAP data and MRIQ of the current sample.
+Only need to be ran once for tidying things up, but keep it here for book keeping.
 """
 from pathlib import Path
 import pandas as pd
 import numpy as np
+
+from nkicap import get_project_path, read_tsv
 
 
 PARTICIPANTS = "enhanced_nki/participants.tsv"
@@ -26,14 +29,14 @@ def fetch_dataset():
         all individual differences data in one place, including CAP derivatives, mriq and basic demographics.
 
     """
-    data_dir = _get_project_path() / "data"
-    participants = _read_tsv(data_dir / PARTICIPANTS).replace(
+    data_dir = get_project_path() / "data"
+    participants = read_tsv(data_dir / PARTICIPANTS, index_col=0).replace(
         {"sex": {0: "F", 1: "M"}}
     )
-    mriq = _read_tsv(data_dir / MRIQ).replace({"MD": np.nan}).dropna()
-    occ = _read_tsv(data_dir / CAP_OCC)
-    dur = _read_tsv(data_dir / CAP_DUR)
-    roi = _read_tsv(data_dir / CAP_ROI)
+    mriq = read_tsv(data_dir / MRIQ, index_col=0).replace({"MD": np.nan}).dropna()
+    occ = read_tsv(data_dir / CAP_OCC, index_col=0)
+    dur = read_tsv(data_dir / CAP_DUR, index_col=0)
+    roi = read_tsv(data_dir / CAP_ROI, index_col=0)
     master = pd.concat([participants, mriq, occ, dur], axis=1, join="inner")
 
     dataset = {
@@ -47,33 +50,24 @@ def fetch_dataset():
     return dataset, master
 
 
-def _get_project_path():
-    return Path(__file__).absolute().parents[1]
-
-
-def _read_tsv(filename):
-    return pd.read_csv(filename, index_col=0, sep="\t")
-
 
 if __name__ == "__main__":
     dataset, master = fetch_dataset()
-    master.to_csv(_get_project_path() / "data" / "enhanced_nki.tsv", sep="\t")
+    master.to_csv(get_project_path() / "data" / "enhanced_nki.tsv", sep="\t")
 
     import json
 
-    with open(_get_project_path() / "data" / "cap.json", "w") as fp:
+    with open(get_project_path() / "data" / "cap.json", "w") as fp:
         json.dump(dataset, fp, indent=2)
 
 
 def test_fetch_dataset():
+    """
+    This test is only suitable to run locally with the full data dir
+    """
     dataset, master = fetch_dataset()
     assert len(dataset["subject"]) == 711
     assert len(dataset["roi"]) == 1054
     assert dataset["group"] == "data/enhanced_nki/desc-cap_groupmap.tsv"
     assert master.shape[0] == 711
     assert type(dataset["roi"]) == list
-
-
-def test_get_project_path():
-    p = _get_project_path()
-    assert p.name == "nkicap"
