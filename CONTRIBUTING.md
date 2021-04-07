@@ -39,7 +39,7 @@ git push origin main --force
 ```
 git checkout -b my-new-analysis
 ```
-5. Create a pull request on the [upstream repository](https://github.com/htwangtw/limmpca/pulls)
+5. Create a pull request on the [upstream repository](https://github.com/nkicap/limmpca/pulls)
 @htwangtw will review your work and help you from here.
 
 For more git related stuff on contributing, checkout [git for development](https://nipy.org/nibabel/gitwash/git_development.html)
