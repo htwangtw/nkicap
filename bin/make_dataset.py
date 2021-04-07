@@ -33,7 +33,9 @@ def fetch_dataset():
     participants = read_tsv(data_dir / PARTICIPANTS, index_col=0).replace(
         {"sex": {0: "F", 1: "M"}}
     )
-    mriq = read_tsv(data_dir / MRIQ, index_col=0).replace({"MD": np.nan}).dropna()
+    mriq = (
+        read_tsv(data_dir / MRIQ, index_col=0).replace({"MD": np.nan}).dropna()
+    )
     occ = read_tsv(data_dir / CAP_OCC, index_col=0)
     dur = read_tsv(data_dir / CAP_DUR, index_col=0)
     roi = read_tsv(data_dir / CAP_ROI, index_col=0)
@@ -48,7 +50,6 @@ def fetch_dataset():
         sub_cap = f"data/enhanced_nki/sub-{subject}/sub-{subject}_desc-capmap_bold.tsv"
         dataset["subject"][subject] = sub_cap
     return dataset, master
-
 
 
 if __name__ == "__main__":

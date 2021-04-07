@@ -20,6 +20,7 @@ def test_get_project_path():
     p = get_project_path()
     assert p.name == "nkicap"
 
+
 def test_read_tsv():
     f = read_tsv(testdata)
     assert f.index.tolist() == list(range(4))

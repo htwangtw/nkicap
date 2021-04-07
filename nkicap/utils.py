@@ -27,7 +27,9 @@ def read_tsv(filename, **kargs):
     if df.empty is True:
         raise ValueError(f"{filename} is empty or not a tab separated file")
     elif "," in df.columns[0]:
-        warnings.warn(f"{filename} might not be a tab separated file, please check input")
+        warnings.warn(
+            f"{filename} might not be a tab separated file, please check input"
+        )
         return df
     else:
         return df
