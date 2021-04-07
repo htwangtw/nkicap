@@ -14,14 +14,10 @@ from cca_zoo import wrappers
 from nkicap import load_data
 
 
-<<<<<<< Updated upstream
-def plot_demo(datapath="data/enhanced_nki.tsv", basepath="results/descriptive"):
-=======
 DATA = "data/enhanced_nki.tsv"
 
 
 def plot_demo(datapath, basepath="results/descriptive"):
->>>>>>> Stashed changes
     """check demographic"""
     dataset = load_data(datapath=datapath)
     plt.figure()
@@ -30,11 +26,7 @@ def plot_demo(datapath, basepath="results/descriptive"):
     plt.savefig(f"{basepath}/demographic.png", dpi=300)
 
 
-<<<<<<< Updated upstream
-def plot_capcorr(datapath="data/enhanced_nki.tsv", basepath="results/descriptive/cap_correlation"):
-=======
 def plot_capcorr(datapath, basepath="results/descriptive/cap_correlation"):
->>>>>>> Stashed changes
     # check the correlation between occurence and duration
     cap = load_data(keyword="cap", datapath=datapath)
     plt.figure()
@@ -55,8 +47,6 @@ def plot_capcorr(datapath, basepath="results/descriptive/cap_correlation"):
     plt.savefig(f"{basepath}_scatter.png", dpi=300)
 
 
-<<<<<<< Updated upstream
-=======
 def plot_corr(datapath, basepath="results/descriptive"):
     dataset = load_data(datapath=datapath)
     pearsons = dataset.iloc[:, 4:].corr().iloc[-16:, :-16]
@@ -77,7 +67,6 @@ def plot_corr(datapath, basepath="results/descriptive"):
     plt.savefig(f"{basepath}/spearmanscorrelation.png", dpi=300)
 
 
->>>>>>> Stashed changes
 def _cca(X, Y):
     ux, sx, vx = np.linalg.svd(X, 0)
     uy, sy, vy = np.linalg.svd(Y, 0)
@@ -86,15 +75,10 @@ def _cca(X, Y):
     b = (vy.T).dot(v.T)
     return a, b, s
 
-<<<<<<< Updated upstream
-def plot_cca(a):
-=======
 
-def plot_cca_weight(a, title):
->>>>>>> Stashed changes
+def plot_cca_weight(a, index, title):
     # plotting
-    plt.figure()
-    w = pd.DataFrame(a, columns=range(1, 9))
+    w = pd.DataFrame(a, index=index, columns=range(1, 9))
     sns.heatmap(w, square=True, center=0)
     plt.title(title)
     plt.xlabel("Canoncial mode")
@@ -123,6 +107,8 @@ def plot_cca(datapath, basepath="results/descriptive"):
     mriq = load_data(keyword="mriq_", datapath=datapath).apply(zscore)
     occ = load_data(keyword="occ", datapath=datapath).apply(zscore)
     dur = load_data(keyword="dur", datapath=datapath).apply(zscore)
+    mriq_index = pd.read_csv("data/mriq_labels.tsv", index_col=0, sep="\t").values
+    mriq_index = np.squeeze(mriq_index).tolist()
 
     cca_w_cap = []
     cca_w_mriq = []
@@ -130,14 +116,23 @@ def plot_cca(datapath, basepath="results/descriptive"):
         w_mriq, w_cap, s = _cca(X=mriq.values, Y=cap.values)
         cca_w_cap.append(w_cap[:, 0])
         cca_w_mriq.append(w_mriq[:, 0])
-        print(name)
-        print(s ** 2 / sum(s ** 2))
 
-        plot_cca_weight(w_mriq, "mriq")
-        plt.savefig(f"{basepath}/cca_weight_{name}-mriq.png", dpi=300)
+        plt.figure()
+        plt.plot(100 * s ** 2 / sum(s ** 2), "-o")
+        plt.title(f"CCA mriq x {name} variance expalined")
+        plt.xlabel("Canonical mode")
+        plt.ylabel("%")
+        plt.savefig(f"{basepath}/cca_varexp_mriq-{name}.png", dpi=300)
         plt.close()
 
-        plot_cca_weight(w_cap, name)
+        plt.figure(figsize=(13, 7))
+        plot_cca_weight(w_mriq, mriq_index, "mriq")
+        plt.savefig(f"{basepath}/cca_weight_{name}-mriq.png", dpi=300)
+        plt.tight_layout()
+        plt.close()
+
+        plt.figure()
+        plot_cca_weight(w_cap, [f"{name}-{i + 1}" for i in range(8)], name)
         plt.savefig(f"{basepath}/cca_weight_{name}-cap.png", dpi=300)
         plt.close()
 
