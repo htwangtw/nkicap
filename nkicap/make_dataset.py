@@ -7,7 +7,7 @@ import numpy as np
 
 
 PARTICIPANTS = "enhanced_nki/participants.tsv"
-MRIQ = "enhanced_nki/ses-BAS1_mriq.tsv"
+MRIQ = "enhanced_nki/mriq.tsv"
 CAP_OCC = "enhanced_nki/desc-cap_occurence.tsv"
 CAP_DUR = "enhanced_nki/desc-cap_duration.tsv"
 CAP_GROUP = "enhanced_nki/desc-cap_groupmap.tsv"
@@ -21,11 +21,15 @@ def fetch_dataset():
     Return
     ------
     dataset: dict
-        A ditionaary that contains relevant data
+        A ditionaary that contains path to CAP maps
+    master: pd.DataFrame
+        all individual differences data in one place, including CAP derivatives, mriq and basic demographics.
 
     """
     data_dir = _get_project_path() / "data"
-    participants = _read_tsv(data_dir / PARTICIPANTS).replace({"sex": {0: "F", 1: "M"}})
+    participants = _read_tsv(data_dir / PARTICIPANTS).replace(
+        {"sex": {0: "F", 1: "M"}}
+    )
     mriq = _read_tsv(data_dir / MRIQ).replace({"MD": np.nan}).dropna()
     occ = _read_tsv(data_dir / CAP_OCC)
     dur = _read_tsv(data_dir / CAP_DUR)
