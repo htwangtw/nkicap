@@ -16,8 +16,9 @@ Cool project
 └── README.md
 ```
 
+
 ## Contribute to this repository
 For adding a new analysis, please submit PR with your analysis as a script added to `bin/`.
-If you feel the tool in the script needs more robutst maintainence, refactor it and add to `nkicap/` with tests.
+If you feel the tool in the script needs more robust maintenance, refactor it and add to `nkicap/` with tests.
 We use pytest for testing and black for formatting.
-If the above three lines makes no sense to you, see detailed [contribution guideline](CONTRIBUTING.md).
+If the above three lines make no sense to you, see detailed [contribution guideline](CONTRIBUTING.md).
