@@ -51,16 +51,25 @@ def plot_capcorr(datapath, basepath="results/descriptive/cap_correlation"):
     plt.savefig(f"{basepath}_scatter.png", dpi=300)
 
 
+def _mriq_labels():
+    mriq_index = pd.read_csv(
+        "data/mriq_labels.tsv", index_col=0, sep="\t"
+    ).values
+    return np.squeeze(mriq_index).tolist()
+
+
 def plot_corr(datapath, basepath="results/descriptive"):
     dataset = load_data(datapath=datapath)
     pearsons = dataset.iloc[:, 4:].corr().iloc[-16:, :-16]
+    mriq_labels = _mriq_labels()
+    pearsons.columns = mriq_labels
     sc = spearmanr(dataset.iloc[:, 4:])
     spearman = pd.DataFrame(
-        sc[0][-16:, :-16], index=pearsons.index, columns=pearsons.columns
+        sc[0][-16:, :-16], index=pearsons.index, columns=mriq_labels
     )
-    plt.figure()
+    plt.figure(figsize=(13, 7))
     sns.heatmap(
-        pearsons,
+        pearsons.T,
         center=0,
         annot=False,
         square=True,
@@ -72,9 +81,9 @@ def plot_corr(datapath, basepath="results/descriptive"):
     plt.tight_layout()
     plt.savefig(f"{basepath}/pearsonscorrelation.png", dpi=300)
 
-    plt.figure()
+    plt.figure(figsize=(13, 7))
     sns.heatmap(
-        spearman,
+        spearman.T,
         center=0,
         annot=False,
         square=True,
@@ -127,10 +136,7 @@ def plot_cca(datapath, basepath="results/descriptive"):
     mriq = load_data(keyword="mriq_", datapath=datapath).apply(zscore)
     occ = load_data(keyword="occ", datapath=datapath).apply(zscore)
     dur = load_data(keyword="dur", datapath=datapath).apply(zscore)
-    mriq_index = pd.read_csv(
-        "data/mriq_labels.tsv", index_col=0, sep="\t"
-    ).values
-    mriq_index = np.squeeze(mriq_index).tolist()
+    mriq_index = _mriq_labels()
 
     cca_w_cap = []
     cca_w_mriq = []
