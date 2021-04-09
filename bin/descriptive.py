@@ -186,9 +186,9 @@ def plot_cca(data, basepath="results/descriptive"):
 if __name__ == "__main__":
     import os
 
-    basepath = "results/descriptive-full"
-    # mriq_drop = ["mriq_19", "mriq_22"]
-    mriq_drop = None
+    basepath = "results/descriptive-drop"
+    mriq_drop = ["mriq_19", "mriq_22"]
+    # mriq_drop = None
     os.makedirs(basepath, exist_ok=True)
 
     data = Data(
