@@ -9,5 +9,6 @@ __all__ = [
     load_data,
     read_tsv,
     get_project_path,
+    "plotting",
     "__version__",
 ]  # not allowing scripts to be read

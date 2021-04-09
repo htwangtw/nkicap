@@ -25,7 +25,7 @@ Activate the virtual environment to use it
 poetry shell
 ```
 
-## Add your analyis
+## Add your analysis
 1. Open an issue at the [upstream repository](https://github.com/htwangtw/nkicap/issues)
 2. Update your fork from the upstream when your main branch is behind. 
 This step is extremely important for avoiding merge conflicts.
@@ -40,7 +40,7 @@ git push origin main --force
 ```
 git checkout -b my-new-analysis
 ```
-5. Create a pull request on the [upstream repository](https://github.com/nkicap/limmpca/pulls)
+5. Create a pull request on the [upstream repository](https://github.com/nkicap/nkicap/pulls)
 @htwangtw will review your work and help you from here.
 
 For more git related stuff on contributing, checkout [git for development](https://nipy.org/nibabel/gitwash/git_development.html)
@@ -57,3 +57,5 @@ This should help others to easily classify the commits into meaningful categorie
 - PL : making pylint happier
 - DOC: for all kinds of documentation related commits
 - TEST: for adding or changing tests
+- FIX: fix stuff
+- ENH: make existing stuff better
