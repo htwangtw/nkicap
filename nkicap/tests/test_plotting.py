@@ -27,6 +27,7 @@ def test_sort_value_abs():
     assert list(pic.words_.keys()) == ["a", "d", "b", "c"]
     assert list(pic.words_.values())[0] == 1
 
+
 def test_coefficent_color():
     val = {"a": 0.7, "b": -0.3, "c": 0.1, "d": -0.5, "e": 0}
     color_word = CoefficentColor(val, cmap="RdBu_r").word_to_color
