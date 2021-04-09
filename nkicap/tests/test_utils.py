@@ -19,6 +19,12 @@ def test_load_data():
     pytest.raises(KeyError, d.load, keyword="blah")
 
 
+def test_drop_mriq():
+    d = Data(datapath=testdata, mriq_label=testmriq, mriq_drop=["mriq_01"])
+    m = d.load("mriq_")
+    assert m.shape[1] == 2
+
+
 def test_get_project_path():
     p = get_project_path()
     assert p.name == "nkicap"
@@ -32,3 +38,4 @@ def test_read_tsv():
     assert f_arg.index.tolist()[0] == "A00123"
     pytest.raises(ValueError, read_tsv, testcsv, index_col=0)
     pytest.warns(UserWarning, read_tsv, testcsv)
+    pytest.raises(Exception, read_tsv, testcsv, sep=",")

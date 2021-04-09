@@ -75,6 +75,7 @@ class Data:
         if self.mriq_drop is not None:
             for l in self.mriq_drop:
                 labels.pop(l)
+                col.remove(l)
 
         if self.mriq_labeltype != "label":
             labels = {k: v[self.mriq_labeltype] for k, v in labels.items()}
@@ -125,7 +126,7 @@ def read_tsv(filename, **kargs):
         other inputs pass to panda.read_csv
     """
     if kargs.get("sep", False):
-        raise ("There's not need to provide input for `sep`.")
+        raise Exception("There's not need to provide input for `sep`.")
 
     df = pd.read_csv(filename, sep="\t", **kargs)
     return _check_tsv(df)
