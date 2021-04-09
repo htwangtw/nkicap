@@ -15,19 +15,13 @@ Fork this repository and install the environment, clone your own fork
 git clone https://github.com/URUSERNAME/nkicap.git
 ```
 
-Install the environment
-```
-cd nkicap
-poetry install
-```
-Activate the virtual environment to use it
-```
-poetry shell
-```
+- Install the environment: `poetry install`.
+- Activate the virtual environment to use it: `poetry shell`.
+- To build distributions run `poetry build`.
 
 ## Add your analysis
 1. Open an issue at the [upstream repository](https://github.com/htwangtw/nkicap/issues)
-2. Update your fork from the upstream when your main branch is behind. 
+2. Update your fork from the upstream when your main branch is behind.
 This step is extremely important for avoiding merge conflicts.
 On your main branch:
 ```
@@ -46,7 +40,7 @@ git checkout -b my-new-analysis
 For more git related stuff on contributing, checkout [git for development](https://nipy.org/nibabel/gitwash/git_development.html)
 
 ## Suggestions on commit message formats
-Please prefix all commit summaries with one (or more) of the following labels. 
+Please prefix all commit summaries with one (or more) of the following labels.
 This should help others to easily classify the commits into meaningful categories:
 - BF : bug fix
 - RF : refactoring

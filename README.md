@@ -19,20 +19,11 @@ Cool project
 - Python version 3.8
 - Poetry version 1.1.4
 
-Install poetry:
-```bash
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
-```
-
-Run this project locally:
+Run this project locally in a virtual environment with poetry:
 ```
 git clone https://github.com/htwangtw/nkicap.git
 cd nkicap
 poetry install
-```
-
-Activate the related virtual environment
-```
 poetry shell
 ```
 
