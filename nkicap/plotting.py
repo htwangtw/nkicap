@@ -53,10 +53,10 @@ class CoefficientWordCloud(WordCloud):
         return self.generate_from_frequencies(frequencies=wc_val)
 
 
-class CoefficentColor:
+class CoefficientColor:
     """Create a color function object which assigns exact colors
     to certain words based on the associated coefficient values
-    when using matplotlib.pyplot.matshow()
+    when using matplotlib.pyplot.matshow() and centre the map around zero
 
     Serve as an input for CoefficientWordCloud
 
@@ -72,10 +72,10 @@ class CoefficentColor:
 
     Example
     -------
-    >> val = {"self": 0.7, "other": -0.3, "focus": 0.1, "test": -0.5}
+    >> val = {"a": 0.7, "b": -0.3, "c": 0.1, "d": 0}
     >> cf = CoefficentColor(val)
-    >> wc = CoefficientWordCloud(color_func=cf)
-
+    >> cf("d")
+    '#f7f6f6'
     """
 
     def __init__(self, word_coeff, cmap="RdBu_r", default_color="grey"):
