@@ -8,62 +8,30 @@ import matplotlib.pyplot as plt
 from scipy.stats.stats import pearsonr
 import seaborn as sns
 from scipy.stats import spearmanr, zscore
-from scipy.linalg import sqrtm
-from cca_zoo import wrappers
 
-from nkicap import load_data
+from nkicap import Data
 
 
 DATA = "data/enhanced_nki.tsv"
 
 
-def plot_demo(datapath, basepath="results/descriptive"):
+def plot_demo(data, basepath="results/descriptive"):
     """check demographic"""
-    dataset = load_data(datapath=datapath)
+    dataset = data.load()
     plt.figure()
     sns.histplot(data=dataset, x="age", hue="sex", multiple="stack")
     plt.title("Demographics")
     plt.savefig(f"{basepath}/demographic.png", dpi=300)
 
 
-def plot_capcorr(datapath, basepath="results/descriptive/cap_correlation"):
-    # check the correlation between occurence and duration
-    cap = load_data(keyword="cap", datapath=datapath)
-    plt.figure()
-    sns.heatmap(
-        cap.corr().iloc[:8, 8:],
-        center=0,
-        annot=True,
-        square=True,
-        linewidths=0.02,
-    )
-    plt.title("CAP correlation")
-    plt.tight_layout()
-    plt.savefig(f"{basepath}_heat.png", dpi=300)
+def plot_corr(data, basepath="results/descriptive"):
+    cap = data.load("cap")
+    mriq = data.load("mriq_")
+    dataset = pd.concat([mriq, cap], axis=1)
 
-    plt.figure()
-    sns.pairplot(
-        cap,
-        x_vars=[c for c in cap.columns.tolist() if "dur" in c],
-        y_vars=[c for c in cap.columns.tolist() if "occ" in c],
-    )
-    plt.tight_layout()
-    plt.savefig(f"{basepath}_scatter.png", dpi=300)
-
-
-def _mriq_labels():
-    mriq_index = pd.read_csv(
-        "data/mriq_labels.tsv", index_col=0, sep="\t"
-    ).values
-    return np.squeeze(mriq_index).tolist()
-
-
-def plot_corr(datapath, basepath="results/descriptive"):
-    dataset = load_data(datapath=datapath)
-    pearsons = dataset.iloc[:, 4:].corr().iloc[-16:, :-16]
-    mriq_labels = _mriq_labels()
-    pearsons.columns = mriq_labels
-    sc = spearmanr(dataset.iloc[:, 4:])
+    pearsons = dataset.corr().iloc[-16:, :-16]
+    mriq_labels = mriq.columns.tolist()
+    sc = spearmanr(dataset)
     spearman = pd.DataFrame(
         sc[0][-16:, :-16], index=pearsons.index, columns=mriq_labels
     )
@@ -132,18 +100,56 @@ def plot_cca_score(U, V, s):
         plt.yticks(())
 
 
-def plot_cca(datapath, basepath="results/descriptive"):
-    mriq = load_data(keyword="mriq_", datapath=datapath).apply(zscore)
-    occ = load_data(keyword="occ", datapath=datapath).apply(zscore)
-    dur = load_data(keyword="dur", datapath=datapath).apply(zscore)
-    mriq_index = _mriq_labels()
+def plot_cca_cap(data, basepath="results/descriptive"):
+    occ = data.load("occ").apply(zscore)
+    dur = data.load("dur").apply(zscore)
+
+    w_occ, w_dur, s = _cca(X=occ.values, Y=dur.values)
+
+    plt.figure()
+    plt.plot(100 * s ** 2 / sum(s ** 2), "-o")
+    plt.title(f"CCA CAP occurence x duration variance expalined")
+    plt.xlabel("Canonical mode")
+    plt.ylabel("%")
+    plt.savefig(f"{basepath}/cca_varexp_occ-dur.png", dpi=300)
+    plt.close()
+
+    plt.figure(figsize=(13, 7))
+    plot_cca_weight(w_occ, [f"occ-{i + 1}" for i in range(8)], "occ")
+    plt.savefig(f"{basepath}/cca_weight_cap-occ.png", dpi=300)
+    plt.tight_layout()
+    plt.close()
+
+    plt.figure()
+    plot_cca_weight(w_dur, [f"dur-{i + 1}" for i in range(8)], "dur")
+    plt.savefig(f"{basepath}/cca_weight_cap-dur.png", dpi=300)
+    plt.close()
+
+    plot_cca_score(
+        occ.values.dot(w_occ[:, 0:4]),
+        dur.values.dot(w_dur[:, 0:4]),
+        s[0:4],
+    )
+    plt.savefig(f"{basepath}/cca_score_cap.png", dpi=300)
+    plt.close()
+
+    for i in range(8):
+        print(pearsonr(w_occ[:, i], w_dur[:, i]))
+        print(pearsonr(w_occ[:, i], w_dur[:, i]))
+
+
+def plot_cca(data, basepath="results/descriptive"):
+    occ = data.load("occ").apply(zscore)
+    dur = data.load("dur").apply(zscore)
+    mriq = data.load("mriq_").apply(zscore)
+    mriq_labels = mriq.columns.tolist()
 
     cca_w_cap = []
     cca_w_mriq = []
     for cap, name in zip([occ, dur], ["occ", "dur"]):
         w_mriq, w_cap, s = _cca(X=mriq.values, Y=cap.values)
-        cca_w_cap.append(w_cap[:, 0])
-        cca_w_mriq.append(w_mriq[:, 0])
+        cca_w_cap.append(w_cap)
+        cca_w_mriq.append(w_mriq)
 
         plt.figure()
         plt.plot(100 * s ** 2 / sum(s ** 2), "-o")
@@ -154,7 +160,7 @@ def plot_cca(datapath, basepath="results/descriptive"):
         plt.close()
 
         plt.figure(figsize=(13, 7))
-        plot_cca_weight(w_mriq, mriq_index, "mriq")
+        plot_cca_weight(w_mriq, mriq_labels, "mriq")
         plt.savefig(f"{basepath}/cca_weight_{name}-mriq.png", dpi=300)
         plt.tight_layout()
         plt.close()
@@ -172,9 +178,25 @@ def plot_cca(datapath, basepath="results/descriptive"):
         plt.savefig(f"{basepath}/cca_score_{name}.png", dpi=300)
         plt.close()
 
+    for i in range(8):
+        print(pearsonr(cca_w_cap[0][:, i], cca_w_cap[1][:, i]))
+        print(pearsonr(cca_w_mriq[0][:, i], cca_w_mriq[1][:, i]))
+
 
 if __name__ == "__main__":
-    plot_capcorr(DATA)
-    plot_demo(DATA)
-    plot_corr(DATA)
-    plot_cca(DATA)
+    import os
+
+    basepath = "results/descriptive-drop"
+    mriq_drop = ["mriq_19", "mriq_22"]
+    # mriq_drop = None
+    os.makedirs(basepath, exist_ok=True)
+
+    data = Data(
+        datapath=DATA,
+        mriq_labeltype="summary",
+        mriq_drop=mriq_drop,
+    )
+    plot_demo(data, basepath)
+    plot_corr(data, basepath)
+    plot_cca(data, basepath)
+    plot_cca_cap(data, basepath)
