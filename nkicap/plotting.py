@@ -8,8 +8,8 @@ from matplotlib import cm
 FONT_PATH = str(Path(__file__).parent / "data" / "Arimo-VariableFont_wght.ttf")
 
 
-class PublicationWordCloud(WordCloud):
-    """Create word cloud for publication.
+class CoefficientWordCloud(WordCloud):
+    """Create word cloud for coefficient values.
     Force some default settings for consistency:
     Horizontal text
     Arial like font (allow over write)
@@ -25,7 +25,7 @@ class PublicationWordCloud(WordCloud):
     Example
     -------
     >> val = {"self": 0.7, "other": -0.3, "focus": 0.1, "test": -0.5}
-    >> wc = PublicationWordCloud()
+    >> wc = CoefficientWordCloud()
     >> wc = wc.heatmap_to_wordcloud(val)
     """
 
@@ -38,9 +38,7 @@ class PublicationWordCloud(WordCloud):
         args["mode"] = "RGBA"
         super().__init__(**args)
 
-    def heatmap_to_wordcloud(
-        self, word_value, cmap="RdBu_r", default_color="grey"
-    ):
+    def heatmap_to_wordcloud(self, word_value):
         """Create a word cloud from word and value parings
         The returned word cloud will use font size to present value magnitude.
         Sign of the values will be reflected on the extreme ends of the color map of choice
@@ -50,38 +48,42 @@ class PublicationWordCloud(WordCloud):
         word_value: dict(str -> float)
             Contains words and associated value, such as a principle
             component feature and the associated coefficient
-        cmap: str
-            matplotlib color map name
-        default_color: str
-            Color for word that's not present in word_value
         """
-        self.color_func = _WordColorFunc(word_value, cmap, default_color)
         wc_val = val_to_freq(word_value, scalar=10)
         return self.generate_from_frequencies(frequencies=wc_val)
 
 
-class _WordColorFunc:
+class CoefficentColor:
     """Create a color function object which assigns exact colors
-    to certain words based on the color to words mapping
+    to certain words based on the associated coefficient values
+    when using matplotlib.pyplot.matshow()
+
+    Serve as an input for CoefficientWordCloud
 
     Parameters
     ----------
-    word_freq : dict(str -> float)
+    word_coeff : dict(str -> float)
         A dictionary that maps a word to its associated value.
     cmap : str
         Name of the matplotlib color map of choice
     default_color : str
          Color that will be assigned to a word that's not a member
          of any value from color_to_words. Defaule to grey
+
+    Example
+    -------
+    >> val = {"self": 0.7, "other": -0.3, "focus": 0.1, "test": -0.5}
+    >> cf = CoefficentColor(val)
+    >> wc = CoefficientWordCloud(color_func=cf)
+
     """
 
-    def __init__(self, word_freq, cmap="RdBu_r", default_color="grey"):
-        vmax = _find_max(word_freq.values())
+    def __init__(self, word_coeff, cmap="RdBu_r", default_color="grey"):
+        vmax = _find_absmax(word_coeff.values())
         word_to_color = {}
-        for (word, val) in word_freq.items():
+        for (word, val) in word_coeff.items():
             v = _rescale(val, vmax)
             word_to_color[word] = _get_color_hex(v, cmap)
-
         self.word_to_color = word_to_color
         self.default_color = default_color
 
@@ -94,7 +96,7 @@ def val_to_freq(word_value, scalar):
     return {k: abs(int(word_value[k] * scalar)) for k in word_value}
 
 
-def _find_max(values):
+def _find_absmax(values):
     """find the absolute maximum values
 
     Parameters
@@ -111,6 +113,7 @@ def _find_max(values):
 
 def _rescale(value, vmax):
     """Recale the value between 0 and 1 for getting color on a symmatric scale
+    Centre around zeor
 
     Parameters
     ----------
@@ -119,7 +122,7 @@ def _rescale(value, vmax):
     vmax : float
         maximum value of the original list
     """
-    return value + vmax / 2 * vmax
+    return (value + vmax) / (2 * vmax)
 
 
 def _get_color_hex(value, cmap):
@@ -141,10 +144,12 @@ def _get_color_hex(value, cmap):
 #     val = {"self": 0.7, "other": -0.3, "focus": 0.1, "test": -0.5}
 
 #     # base of wc
-#     wc = PublicationWordCloud()
+#     color_func = CoefficentColor(val)
+#     wc = CoefficientWordCloud(color_func=color_func)
 #     pic = wc.heatmap_to_wordcloud(val)
 
-#     plt.figure()
-#     plt.imshow(pic, interpolation="bilinear")
-#     plt.axis("off")
-#     plt.show()
+#     svg_txt = pic.to_svg()
+#     with open("test.svg", "w") as f:
+#         f.write(svg_txt)
+
+#     pic.to_file("test.png")
