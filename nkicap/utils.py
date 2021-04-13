@@ -104,11 +104,12 @@ def _check_tsv(df):
     """check if file is tsv"""
     if df.empty is True:
         raise ValueError("File is empty or not a tab separated file.")
-    elif "," in df.columns[0]:
-        warnings.warn(
-            "File is might not be a tab separated file, please check input"
-        )
-        return df
+    if type(df.columns[0]) is str:
+        if "," in df.columns[0]:
+            warnings.warn(
+                "File is might not be a tab separated file, please check input"
+            )
+            return df
     else:
         return df
 
