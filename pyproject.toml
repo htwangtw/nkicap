@@ -17,6 +17,7 @@ ipython = "^7.21.0"
 brainspace = "^0.1.1"
 wordcloud = "^1.8.1"
 fonttools = "^4.22.0"
+dash = "^1.20.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"

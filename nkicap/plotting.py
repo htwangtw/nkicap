@@ -3,9 +3,11 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolor
 from matplotlib import cm
+from .utils import get_project_path
 
 
-FONT_PATH = str(Path(__file__).parent / "data" / "Arimo-VariableFont_wght.ttf")
+
+FONT_PATH = str(get_project_path() / "Arimo-VariableFont_wght.ttf")
 
 
 class CoefficientWordCloud(WordCloud):

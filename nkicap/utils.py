@@ -109,9 +109,7 @@ def _check_tsv(df):
             warnings.warn(
                 "File is might not be a tab separated file, please check input"
             )
-            return df
-    else:
-        return df
+    return df
 
 
 def read_tsv(filename, **kargs):
