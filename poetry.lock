@@ -161,26 +161,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "cca-zoo"
-version = "1.2.1"
-description = "Canonical Correlation Analysis Zoo: CCA, GCCA, MCCA, DCCA, DGCCA, DVCCA, DCCAE, KCCA and regularised variants including sparse CCA , ridge CCA and elastic CCA"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-matplotlib = "*"
-numpy = "*"
-pandas = "*"
-Pillow = "*"
-scikit-learn = "*"
-scipy = ">=1.5"
-seaborn = "*"
-
-[package.extras]
-deep = ["torch (>=1.7.0)", "torchvision", "tensorboard"]
-
-[[package]]
 name = "certifi"
 version = "2020.12.5"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -1515,7 +1495,7 @@ pillow = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "55ed880d270e8d7286761455496549d4605777cf79849d7f780d566de98d982f"
+content-hash = "e3df69c23e3ce2e208f33a9b4328608fe094a51cadcd473fc46e7fa63591c426"
 
 [metadata.files]
 alabaster = [
@@ -1618,9 +1598,6 @@ brotli = [
     {file = "Brotli-1.0.9-cp39-cp39-win32.whl", hash = "sha256:cfc391f4429ee0a9370aa93d812a52e1fee0f37a81861f4fdd1f4fb28e8547c3"},
     {file = "Brotli-1.0.9-cp39-cp39-win_amd64.whl", hash = "sha256:854c33dad5ba0fbd6ab69185fec8dab89e13cda6b7d191ba111987df74f38761"},
     {file = "Brotli-1.0.9.zip", hash = "sha256:4d1b810aa0ed773f81dceda2cc7b403d01057458730e309856356d4ef4188438"},
-]
-cca-zoo = [
-    {file = "cca_zoo-1.2.1-py3-none-any.whl", hash = "sha256:088a08f643b1cc854ab25310bacbae5d3e2239c8d71eff46b559af326c50855d"},
 ]
 certifi = [
     {file = "certifi-2020.12.5-py2.py3-none-any.whl", hash = "sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830"},
