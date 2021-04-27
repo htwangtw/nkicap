@@ -6,8 +6,7 @@ from matplotlib import cm
 from .utils import get_project_path
 
 
-
-FONT_PATH = str(get_project_path() / "Arimo-VariableFont_wght.ttf")
+FONT_PATH = str(get_project_path() / "data/Arimo-VariableFont_wght.ttf")
 
 
 class CoefficientWordCloud(WordCloud):

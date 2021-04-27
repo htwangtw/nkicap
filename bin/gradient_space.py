@@ -38,7 +38,9 @@ def cap_to_gradient(data_path=None):
     # covert to dataframe
     collect = []
     for key in gradient_space:
-        df = pd.DataFrame(gradient_space[key], index=[f"Gradient {i+1}" for i in range(3)]).T
+        df = pd.DataFrame(
+            gradient_space[key], index=[f"Gradient {i+1}" for i in range(3)]
+        ).T
         df["CAP"] = key[-2:]
         df.index.name = "participant_id"
         df = df.reset_index()
@@ -48,36 +50,53 @@ def cap_to_gradient(data_path=None):
         gradient_space.to_csv(data_path, sep="\t", index=False)
     return gradient_space
 
-gradient_space = cap_to_gradient(Path(get_project_path()) / "data/cap_gradient_space.tsv")
+
+gradient_space = cap_to_gradient(
+    Path(get_project_path()) / "data/cap_gradient_space.tsv"
+)
 
 app = dash.Dash(__name__)
-app.layout = html.Div([
-    dcc.Graph(id="gradient-space"),
-    html.P("CAP label"),
-    dcc.Checklist(
-        id='cap-label',
-        options=[
-        {'label': f'{i}', 'value': f'{i}'} for i in range (1, 9)],
-        value=["1", "2"],
-        labelStyle={'display': 'inline-block'}
-    ),
-])
+app.layout = html.Div(
+    [
+        dcc.Graph(id="gradient-space"),
+        html.P("CAP label"),
+        dcc.Checklist(
+            id="cap-label",
+            options=[{"label": f"{i}", "value": f"{i}"} for i in range(1, 9)],
+            value=["1", "2"],
+            labelStyle={"display": "inline-block"},
+        ),
+    ]
+)
+
 
 @app.callback(
-    Output("gradient-space", "figure"),
-    [Input("cap-label", "value")])
+    Output("gradient-space", "figure"), [Input("cap-label", "value")]
+)
 def update_chart(value):
     mask = []
     for i in value:
-        mask.extend(gradient_space[gradient_space["CAP"] == int(i)].index.tolist())
-    fig = px.scatter_3d(gradient_space.iloc[mask, :],
-        x='Gradient 1', y='Gradient 2', z='Gradient 3',
-        range_x=[-1, 1], range_y=[-1, 1], range_z=[-1, 1],
+        mask.extend(
+            gradient_space[gradient_space["CAP"] == int(i)].index.tolist()
+        )
+    fig = px.scatter_3d(
+        gradient_space.iloc[mask, :],
+        x="Gradient 1",
+        y="Gradient 2",
+        z="Gradient 3",
+        range_x=[-1, 1],
+        range_y=[-1, 1],
+        range_z=[-1, 1],
         range_color=[1, 8],
-        color="CAP", opacity=0.5, width=800, height=500)
+        color="CAP",
+        opacity=0.5,
+        width=800,
+        height=500,
+    )
     return fig
+
 
 app.run_server(debug=True)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run_server()

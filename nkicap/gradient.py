@@ -8,7 +8,10 @@ from .utils import read_tsv, get_project_path
 
 def _fetch_margulies_gradient():
     """Load Margulies gradients in Schaefer 100 space"""
-    path_dm_gradient = Path(get_project_path()) / "data/hcp/hcp_embed_1-10_Schaefer1000_7Networks.txt"
+    path_dm_gradient = (
+        Path(get_project_path())
+        / "data/hcp/hcp_embed_1-10_Schaefer1000_7Networks.txt"
+    )
     return read_tsv(path_dm_gradient, header=None, names=list(range(1, 11)))
 
 
