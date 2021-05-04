@@ -2,6 +2,7 @@
 .vscode
 data/hcp/
 data/enhanced_nki/
+data/sourcedata/
 data/cap.json
 data/enhanced_nki.tsv
 

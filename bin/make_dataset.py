@@ -11,8 +11,8 @@ from scipy import io
 from nkicap import get_project_path, read_tsv
 
 
-SOURCE_MAT = "enhanced_nki/sourcedata/CAP_results_organized_toHaoTing.mat"
-SOURCE_MRIQ = "enhanced_nki/sourcedata/ses-BAS1_mriq.csv"
+SOURCE_MAT = "sourcedata/CAP_results_organized_toHaoTing.mat"
+SOURCE_MRIQ = "sourcedata/ses-BAS1_mriq.csv"
 PARTICIPANTS = "enhanced_nki/participants.tsv"
 MRIQ = "enhanced_nki/mriq.tsv"
 CAP_OCC = "enhanced_nki/desc-cap_occurence.tsv"
