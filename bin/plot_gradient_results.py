@@ -1,4 +1,4 @@
-from matplotlib import colors
+"""Plot CAP maps in gradient space for presentations."""
 from nkicap.gradient import cap_to_gradient
 from nkicap.utils import get_project_path
 import matplotlib.pyplot as plt
