@@ -106,6 +106,8 @@ def source2raw():
     # save mriq
     mriq = mriq_source.loc[participants[participants["mriq"] == 1].index, :]
     mriq = mriq.drop(columns=["mriq"])
+    mriq = mriq.rename(columns={"rmiq_26": "mriq_26"})
+    mriq = mriq.loc[:, [f"mriq_{i+1:02d}" for i in range(31)]]
     mriq.to_csv(data_dir / MRIQ, sep="\t")
 
 

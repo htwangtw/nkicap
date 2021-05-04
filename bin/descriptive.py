@@ -24,6 +24,24 @@ def plot_demo(data, basepath="results/descriptive"):
     plt.savefig(f"{basepath}/demographic.png", dpi=300)
 
 
+def plot_occ_dur(data, basepath="results/descriptive"):
+    cap = data.load("cap")
+    pearsons = cap.corr().iloc[8:, :8]
+    plt.figure(figsize=(7, 5))
+    sns.heatmap(
+        pearsons,
+        center=0,
+        annot=True,
+        square=True,
+        linewidths=0.02,
+        vmax=1,
+        vmin=-1,
+    )
+    plt.title("Senity check")
+    plt.tight_layout()
+    plt.savefig(f"{basepath}/occ_dur.png", dpi=300)
+
+
 def plot_corr(data, basepath="results/descriptive"):
     cap = data.load("cap")
     mriq = data.load("mriq_")
@@ -186,7 +204,7 @@ def plot_cca(data, basepath="results/descriptive"):
 if __name__ == "__main__":
     import os
 
-    basepath = "results/descriptive-drop"
+    basepath = "results/descriptive"
     mriq_drop = ["mriq_19", "mriq_22"]
     # mriq_drop = None
     os.makedirs(basepath, exist_ok=True)
@@ -196,6 +214,7 @@ if __name__ == "__main__":
         mriq_labeltype="summary",
         mriq_drop=mriq_drop,
     )
+    plot_occ_dur(data, basepath)
     plot_demo(data, basepath)
     plot_corr(data, basepath)
     plot_cca(data, basepath)
