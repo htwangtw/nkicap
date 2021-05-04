@@ -15,47 +15,91 @@ SOURCE_MAT = "sourcedata/CAP_results_organized_toHaoTing.mat"
 SOURCE_MRIQ = "sourcedata/ses-BAS1_mriq.csv"
 PARTICIPANTS = "enhanced_nki/participants.tsv"
 MRIQ = "enhanced_nki/mriq.tsv"
+LABEL = "enhanced_nki/desg.tsv"
+SCHAEFER = "parcellations/Schaefer2018_1000Parcels_7Networks_order.txt"
+TIAN = "parcellations/Tian_Subcortex_S4_3T_label.txt"
 CAP_OCC = "enhanced_nki/desc-cap_occurence.tsv"
 CAP_DUR = "enhanced_nki/desc-cap_duration.tsv"
 CAP_GROUP = "enhanced_nki/desc-cap_groupmap.tsv"
 CAP_ROI = "enhanced_nki/desg.tsv"
+
 data_dir = get_project_path() / "data"
+
+
+def roi_labels():
+    """Make ROI label refereces."""
+    shaefer = pd.read_table(data_dir / SCHAEFER, header=None, index_col=0)
+    tian = pd.read_table(data_dir / TIAN, header=None)
+    shaefer = shaefer.rename(columns={1: "name"})
+    tian = tian.rename(columns={0: "name"})
+    shaefer["index"] = range(1, 1001)
+    tian["index"] = range(1001, 1055)
+    lablel = pd.concat(
+        [shaefer.loc[:, ["index", "name"]], tian.loc[:, ["index", "name"]]],
+        ignore_index=True,
+    )
+    lablel.to_csv(data_dir / LABEL, index=False, sep="\t")
+
 
 def source2raw():
     """Parse .mat file to txt."""
-    cap_results = io.loadmat(data_dir / SOURCE_MAT,
-                             squeeze_me=True, simplify_cells=True)["CAP_results"]
+    cap_results = io.loadmat(
+        data_dir / SOURCE_MAT, squeeze_me=True, simplify_cells=True
+    )["CAP_results"]
     mriq_source = pd.read_csv(data_dir / SOURCE_MRIQ, index_col=0).dropna()
     mriq_source["mriq"] = np.ones(mriq_source.shape[0])
 
     # cap summary stats
-    occ = pd.DataFrame(cap_results["occurence_rate"],
-                index=[f"occ_cap_{i+1:02d}" for i in range(8)],
-                columns=cap_results["subjects"]).T
+    occ = pd.DataFrame(
+        cap_results["occurence_rate"],
+        index=[f"occ_cap_{i+1:02d}" for i in range(8)],
+        columns=cap_results["subjects"],
+    ).T
     occ.index.name = "participant_id"
     occ.to_csv(data_dir / CAP_OCC, sep="\t")
 
-    dur = pd.DataFrame(cap_results["duration"],
-                index=[f"dur_cap_{i+1:02d}" for i in range(8)],
-                columns=cap_results["subjects"]).T
+    dur = pd.DataFrame(
+        cap_results["duration"],
+        index=[f"dur_cap_{i+1:02d}" for i in range(8)],
+        columns=cap_results["subjects"],
+    ).T
     dur.index.name = "participant_id"
     dur.to_csv(data_dir / CAP_DUR, sep="\t")
 
     # cap map and transition matrix
     cap_labels = [f"cap_{i+1:02d}" for i in range(8)]
-    for t, m, sub in zip(cap_results["transition"], cap_results["map_sub"], cap_results["subjects"]):
+    for t, m, sub in zip(
+        cap_results["transition"],
+        cap_results["map_sub"],
+        cap_results["subjects"],
+    ):
         t = pd.DataFrame(t, index=cap_labels, columns=cap_labels)
         m = pd.DataFrame(m, columns=cap_labels, index=range(1, 1055))
-        t.to_csv(data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-capmap_bold.tsv", sep="\t")
-        m.to_csv(data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-transition.tsv", sep="\t")
+        t.to_csv(
+            data_dir
+            / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-capmap_bold.tsv",
+            sep="\t",
+        )
+        m.to_csv(
+            data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-transition.tsv",
+            sep="\t",
+        )
 
-    cap_group = pd.DataFrame(cap_results["map_group"], columns=cap_labels, index=range(1, 1055))
+    cap_group = pd.DataFrame(
+        cap_results["map_group"], columns=cap_labels, index=range(1, 1055)
+    )
     cap_group.to_csv(data_dir / CAP_GROUP, sep="\t")
 
     # create participants info file
-    participants = pd.DataFrame([cap_results["age"], cap_results["sex"]], columns=cap_results["subjects"], index=["age", "sex"]).T
+    participants = pd.DataFrame(
+        [cap_results["age"], cap_results["sex"]],
+        columns=cap_results["subjects"],
+        index=["age", "sex"],
+    ).T
     participants.index.name = "participant_id"
-    participants = pd.concat([participants, mriq_source["mriq"]], axis=1).dropna(thresh=2)
+    participants = pd.concat(
+        [participants, mriq_source["mriq"]], axis=1
+    ).dropna(thresh=2)
     participants["mriq"] = participants["mriq"].fillna(0)
     participants.to_csv(data_dir / PARTICIPANTS, sep="\t")
 
@@ -101,6 +145,7 @@ def fetch_dataset():
 
 if __name__ == "__main__":
     source2raw()
+    roi_labels()
     dataset, master = fetch_dataset()
     master.to_csv(get_project_path() / "data" / "enhanced_nki.tsv", sep="\t")
 
