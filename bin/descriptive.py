@@ -1,7 +1,4 @@
-"""
-Data exploration
-"""
-
+"""Data exploration"""
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -42,35 +39,28 @@ def plot_occ_dur(data, basepath="results/descriptive"):
     plt.savefig(f"{basepath}/occ_dur.png", dpi=300)
 
 
-def plot_corr(data, basepath="results/descriptive"):
+def plot_corr(cap, mriq, prefix, basepath="results/descriptive"):
     """Simple correlation between all CAP features and MRIQ."""
-    cap = data.load("cap")
-    mriq = data.load("mriq_")
     dataset = pd.concat([mriq, cap], axis=1)
-
-    pearsons = dataset.corr().iloc[-16:, :-16]
     mriq_labels = mriq.columns.tolist()
+    corr_mat_size = cap.shape[1]
+
+    pearsons = dataset.corr().iloc[-corr_mat_size:, :-corr_mat_size]
+    corr_mat_mriq(pearsons.T, "pearsons r", f"{basepath}/{prefix}_pearsons.png")
     sc = spearmanr(dataset)
     spearman = pd.DataFrame(
-        sc[0][-16:, :-16], index=pearsons.index, columns=mriq_labels
+        sc[0][-corr_mat_size:, :-corr_mat_size],
+        index=pearsons.index,
+        columns=mriq_labels,
     )
-    plt.figure(figsize=(13, 7))
-    sns.heatmap(
-        pearsons.T,
-        center=0,
-        annot=False,
-        square=True,
-        linewidths=0.02,
-        vmax=0.15,
-        vmin=-0.15,
-    )
-    plt.title("pearsons r")
-    plt.tight_layout()
-    plt.savefig(f"{basepath}/pearsonscorrelation.png", dpi=300)
+    corr_mat_mriq(spearman.T, "spearman r", f"{basepath}/{prefix}_spearmans.png")
 
+
+def corr_mat_mriq(mat, title, path):
+    """Plot the simple correlation and enough space to show the full questions."""
     plt.figure(figsize=(13, 7))
     sns.heatmap(
-        spearman.T,
+        mat,
         center=0,
         annot=False,
         square=True,
@@ -78,9 +68,25 @@ def plot_corr(data, basepath="results/descriptive"):
         vmax=0.15,
         vmin=-0.15,
     )
-    plt.title("spearmans r")
+    plt.title(title)
     plt.tight_layout()
-    plt.savefig(f"{basepath}/spearmanscorrelation.png", dpi=300)
+    plt.savefig(path, dpi=300)
+
+
+def cap_pairs(data):
+    """Calculate differences of CAP pairs."""
+    cap = data.load("cap")
+    diffs = pd.DataFrame()
+    for i in range(4):
+        first = 2 * i + 1
+        second = first + 1
+        occ_diff = cap[f"occ_cap_0{first}"] - cap[f"occ_cap_0{second}"]
+        occ_diff.name = f"occ_cap_0{first}_0{second}"
+        dur_diff = cap[f"dur_cap_0{first}"] - cap[f"dur_cap_0{second}"]
+        dur_diff.name = f"dur_cap_0{first}_0{second}"
+        diffs = pd.concat([diffs, occ_diff, dur_diff], axis=1)
+        diffs.index.name = "participant_id"
+    return diffs.reindex(sorted(diffs.columns), axis=1)
 
 
 def _cca(X, Y):
@@ -206,17 +212,20 @@ if __name__ == "__main__":
     import os
 
     basepath = "results/descriptive"
-    mriq_drop = ["mriq_19", "mriq_22"]
-    # mriq_drop = None
     os.makedirs(basepath, exist_ok=True)
 
+    mriq_drop = ["mriq_19", "mriq_22"]
     data = Data(
         datapath=DATA,
         mriq_labeltype="full",
-        mriq_drop=mriq_drop,
+        mriq_drop=None,
     )
+    diff = cap_pairs(data)
+    cap = data.load("cap")
+    mriq = data.load("mriq_")
     plot_occ_dur(data, basepath)
     plot_demo(data, basepath)
-    plot_corr(data, basepath)
+    plot_corr(cap, mriq, "cap-raw", basepath)
+    plot_corr(diff, mriq, "cap-pairs", basepath)
     # plot_cca(data, basepath)
     # plot_cca_cap(data, basepath)

@@ -1,32 +1,32 @@
-label	full	summary
-mriq_01	I thought about things I am currently worried about	Concerns
-mriq_02	I thought about people I have just recently met	People
-mriq_03	I thought of people I have known for a long time (friends)	Friend
-mriq_04	I thought about members of my family	Family
-mriq_05	I thought about an event that took place earlier today	Today - Past
-mriq_06	I thought about an interaction I may possibly have in the future	Social - Future
-mriq_07	I thought about an interaction with somebody that took place in the past	Social - Past
-mriq_08	I thought about something that happened at a place very close to me	Near Location
-mriq_09	I thought about something that made me feel guilty	Guilt
-mriq_10	I thought about an event that may take place later today	Today - Plan
-mriq_11	I thought about something that happened in the recent past (last couple of days but not today)	Recent Past
-mriq_12	I thought about something that happened a long time ago in the past	Distant Past
-mriq_13	I thought about something that made me angry	Anger
-mriq_14	I thought about something that made me happy	Happiness
-mriq_15	I thought about something that made me cheerful	Cheerfulness
-mriq_16	I thought about something that made me calm	Calm
-mriq_17	I thought about something that made me sad	Sadness
-mriq_18	I thought about something that is important to me	Importance
-mriq_19	I thought about something that could still happen today	Today - Future
-mriq_20	I thought about something that may take place in the distant future	Distant Future
-mriq_21	I thought about something that could take place in the near future (days or weeks but not today)	Near Future
-mriq_22	I thought about personal worries	Worries
-mriq_23	I thought about something that happened in a place far away from where I am now	Distant Location
-mriq_24	In the form of images:	Image
-mriq_25	In the form of words:	Words
-mriq_26	Like an inner monologue or audiobook:	Monologue
-mriq_27	Like a television program or film:	Film
-mriq_28	Had a strong and consistent personal narrative:	Narrative
-mriq_29	Had a clear sense of purpose:	Purpose
-mriq_30	Vague and non-specific:	Vague
-mriq_31	Fragmented and disjointed:	Fragment
+label	full	summary	stats
+mriq_01	I thought about things I am currently worried about	Concerns	Concerns
+mriq_02	I thought about people I have just recently met	People	People
+mriq_03	I thought of people I have known for a long time (friends)	Friend	Friend
+mriq_04	I thought about members of my family	Family	Family
+mriq_05	I thought about an event that took place earlier today	Today - Past	Today_Past
+mriq_06	I thought about an interaction I may possibly have in the future	Social - Future	Social_Future
+mriq_07	I thought about an interaction with somebody that took place in the past	Social - Past	Social_Past
+mriq_08	I thought about something that happened at a place very close to me	Near Location	NearLocation
+mriq_09	I thought about something that made me feel guilty	Guilt	Guilt
+mriq_10	I thought about an event that may take place later today	Today - Plan	Today_Plan
+mriq_11	I thought about something that happened in the recent past (last couple of days but not today)	Recent Past	RecentPast
+mriq_12	I thought about something that happened a long time ago in the past	Distant Past	DistantPast
+mriq_13	I thought about something that made me angry	Anger	Anger
+mriq_14	I thought about something that made me happy	Happiness	Happiness
+mriq_15	I thought about something that made me cheerful	Cheerfulness	Cheerfulness
+mriq_16	I thought about something that made me calm	Calm	Calm
+mriq_17	I thought about something that made me sad	Sadness	Sadness
+mriq_18	I thought about something that is important to me	Importance	Importance
+mriq_19	I thought about something that could still happen today	Today - Future	TodayFuture
+mriq_20	I thought about something that may take place in the distant future	Distant Future	DistantFuture
+mriq_21	I thought about something that could take place in the near future (days or weeks but not today)	Near Future	NearFuture
+mriq_22	I thought about personal worries	Worries	Worries
+mriq_23	I thought about something that happened in a place far away from where I am now	Distant Location	DistantLocation
+mriq_24	In the form of images:	Image	Image
+mriq_25	In the form of words:	Words	Words
+mriq_26	Like an inner monologue or audiobook:	Monologue	Monologue
+mriq_27	Like a television program or film:	Film	Film
+mriq_28	Had a strong and consistent personal narrative:	Narrative	Narrative
+mriq_29	Had a clear sense of purpose:	Purpose	Purpose
+mriq_30	Vague and non-specific:	Vague	Vague
+mriq_31	Fragmented and disjointed:	Fragment	Fragment
