@@ -1,17 +1,16 @@
-import numpy as np
-from pathlib import Path
-import pandas as pd
 import json
+from pathlib import Path
 
+import numpy as np
+import pandas as pd
 
-from .utils import read_tsv, get_project_path
+from .utils import get_project_path, read_tsv
 
 
 def _fetch_margulies_gradient():
     """Load Margulies gradients in Schaefer 100 space"""
     path_dm_gradient = (
-        Path(get_project_path())
-        / "data/hcp/hcp_embed_1-10_Schaefer1000_7Networks.txt"
+        Path(get_project_path()) / "data/hcp/hcp_embed_1-10_Schaefer1000_7Networks.txt"
     )
     return read_tsv(path_dm_gradient, header=None, names=list(range(1, 11)))
 
@@ -40,8 +39,7 @@ def cap_to_gradient(data_path=None):
     path_group_cap = path_cap["group"]
     group_cap = read_tsv(path_group_cap, index_col=0)
     gradient_space = {
-        label: {"group": map_space(cap_val)}
-        for label, cap_val in group_cap.items()
+        label: {"group": map_space(cap_val)} for label, cap_val in group_cap.items()
     }
 
     # load subject cap and map to gradient space

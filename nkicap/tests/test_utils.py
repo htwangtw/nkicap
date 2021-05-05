@@ -1,8 +1,9 @@
-from ..utils import Data, get_project_path, read_tsv
-from .utils import get_test_data_path
+from pathlib import Path
 
 import pytest
-from pathlib import Path
+
+from ..utils import Data, get_project_path, read_tsv
+from .utils import get_test_data_path
 
 testdata = Path(get_test_data_path()) / "file.tsv"
 testmriq = Path(get_test_data_path()) / "mriq.tsv"

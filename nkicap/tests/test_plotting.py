@@ -1,4 +1,4 @@
-from ..plotting import CoefficientWordCloud, CoefficientColor, _get_color_hex
+from ..plotting import CoefficientColor, CoefficientWordCloud, _get_color_hex
 from .utils import get_test_data_path
 
 testdata = f"{get_test_data_path()}/font.ttf"

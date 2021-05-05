@@ -1,9 +1,9 @@
-from matplotlib import colors
-from nkicap.gradient import cap_to_gradient
-from nkicap.utils import get_project_path
-import matplotlib.pyplot as plt
 from pathlib import Path
 
+import matplotlib.pyplot as plt
+
+from nkicap.gradient import cap_to_gradient
+from nkicap.utils import get_project_path
 
 gradient_space = cap_to_gradient(
     Path(get_project_path()) / "data/cap_gradient_space.tsv"

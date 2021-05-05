@@ -1,7 +1,7 @@
-from pathlib import Path
 import warnings
+from pathlib import Path
+
 import pandas as pd
-import numpy as np
 
 
 class Data:
@@ -73,9 +73,9 @@ class Data:
 
         labels = self.mriq_label.copy()
         if self.mriq_drop is not None:
-            for l in self.mriq_drop:
-                labels.pop(l)
-                col.remove(l)
+            for label in self.mriq_drop:
+                labels.pop(label)
+                col.remove(label)
 
         if self.mriq_labeltype != "label":
             labels = {k: v[self.mriq_labeltype] for k, v in labels.items()}

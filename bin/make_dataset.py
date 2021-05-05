@@ -4,12 +4,11 @@ Only need to be ran once for tidying things up, but keep it here for book keepin
 """
 import json
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 from scipy import io
 
 from nkicap import get_project_path, read_tsv
-
 
 SOURCE_MAT = "sourcedata/CAP_results_organized_toHaoTing.mat"
 SOURCE_MRIQ = "sourcedata/ses-BAS1_mriq.csv"
@@ -76,8 +75,7 @@ def source2raw():
         t = pd.DataFrame(t, index=cap_labels, columns=cap_labels)
         m = pd.DataFrame(m, columns=cap_labels, index=range(1, 1055))
         t.to_csv(
-            data_dir
-            / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-capmap_bold.tsv",
+            data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-capmap_bold.tsv",
             sep="\t",
         )
         m.to_csv(
@@ -97,9 +95,9 @@ def source2raw():
         index=["age", "sex"],
     ).T
     participants.index.name = "participant_id"
-    participants = pd.concat(
-        [participants, mriq_source["mriq"]], axis=1
-    ).dropna(thresh=2)
+    participants = pd.concat([participants, mriq_source["mriq"]], axis=1).dropna(
+        thresh=2
+    )
     participants["mriq"] = participants["mriq"].fillna(0)
     participants.to_csv(data_dir / PARTICIPANTS, sep="\t")
 
@@ -126,9 +124,7 @@ def fetch_dataset():
     participants = read_tsv(data_dir / PARTICIPANTS, index_col=0).replace(
         {"sex": {0: "F", 1: "M"}}
     )
-    mriq = (
-        read_tsv(data_dir / MRIQ, index_col=0).replace({"MD": np.nan}).dropna()
-    )
+    mriq = read_tsv(data_dir / MRIQ, index_col=0).replace({"MD": np.nan}).dropna()
     occ = read_tsv(data_dir / CAP_OCC, index_col=0)
     dur = read_tsv(data_dir / CAP_DUR, index_col=0)
     roi = read_tsv(data_dir / CAP_ROI, index_col=0)

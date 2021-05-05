@@ -1,10 +1,8 @@
-from pathlib import Path
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
 import matplotlib.colors as mcolor
 from matplotlib import cm
-from .utils import get_project_path
+from wordcloud import WordCloud
 
+from .utils import get_project_path
 
 FONT_PATH = str(get_project_path() / "data/Arimo-VariableFont_wght.ttf")
 
@@ -42,7 +40,8 @@ class CoefficientWordCloud(WordCloud):
     def heatmap_to_wordcloud(self, word_value):
         """Create a word cloud from word and value parings
         The returned word cloud will use font size to present value magnitude.
-        Sign of the values will be reflected on the extreme ends of the color map of choice
+        Sign of the values will be reflected on the extreme ends of the
+        color map of choice.
 
         Parameters
         ----------

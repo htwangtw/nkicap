@@ -2,21 +2,20 @@
 Data exploration
 """
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from scipy.stats.stats import pearsonr
 import seaborn as sns
 from scipy.stats import spearmanr, zscore
+from scipy.stats.stats import pearsonr
 
 from nkicap import Data
-
 
 DATA = "data/enhanced_nki.tsv"
 
 
 def plot_demo(data, basepath="results/descriptive"):
-    """check demographic"""
+    """Check demographic."""
     dataset = data.load()
     plt.figure()
     sns.histplot(data=dataset, x="age", hue="sex", multiple="stack")
@@ -25,6 +24,7 @@ def plot_demo(data, basepath="results/descriptive"):
 
 
 def plot_occ_dur(data, basepath="results/descriptive"):
+    """Sanity check on the CAP occurence and duration."""
     cap = data.load("cap")
     pearsons = cap.corr().iloc[8:, :8]
     plt.figure(figsize=(7, 5))
@@ -37,12 +37,13 @@ def plot_occ_dur(data, basepath="results/descriptive"):
         vmax=1,
         vmin=-1,
     )
-    plt.title("Senity check")
+    plt.title("CAP correlations (sainity check)")
     plt.tight_layout()
     plt.savefig(f"{basepath}/occ_dur.png", dpi=300)
 
 
 def plot_corr(data, basepath="results/descriptive"):
+    """Simple correlation between all CAP features and MRIQ."""
     cap = data.load("cap")
     mriq = data.load("mriq_")
     dataset = pd.concat([mriq, cap], axis=1)
@@ -126,7 +127,7 @@ def plot_cca_cap(data, basepath="results/descriptive"):
 
     plt.figure()
     plt.plot(100 * s ** 2 / sum(s ** 2), "-o")
-    plt.title(f"CCA CAP occurence x duration variance expalined")
+    plt.title("CCA CAP occurence x duration variance expalined")
     plt.xlabel("Canonical mode")
     plt.ylabel("%")
     plt.savefig(f"{basepath}/cca_varexp_occ-dur.png", dpi=300)
@@ -211,11 +212,11 @@ if __name__ == "__main__":
 
     data = Data(
         datapath=DATA,
-        mriq_labeltype="summary",
+        mriq_labeltype="full",
         mriq_drop=mriq_drop,
     )
     plot_occ_dur(data, basepath)
     plot_demo(data, basepath)
     plot_corr(data, basepath)
-    plot_cca(data, basepath)
-    plot_cca_cap(data, basepath)
+    # plot_cca(data, basepath)
+    # plot_cca_cap(data, basepath)

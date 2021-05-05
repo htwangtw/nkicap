@@ -2,15 +2,14 @@
 
 from pathlib import Path
 
-import plotly.express as px
-from jupyter_dash import JupyterDash
 import dash_core_components as dcc
 import dash_html_components as html
+import plotly.express as px
 from dash.dependencies import Input, Output
+from jupyter_dash import JupyterDash
 
 from nkicap.gradient import cap_to_gradient
 from nkicap.utils import get_project_path
-
 
 gradient_space = cap_to_gradient(
     Path(get_project_path()) / "data/cap_gradient_space.tsv"
@@ -37,9 +36,7 @@ app.layout = html.Div(
 )
 
 
-@app.callback(
-    Output("gradient-space", "figure"), [Input("cap-label", "value")]
-)
+@app.callback(Output("gradient-space", "figure"), [Input("cap-label", "value")])
 def update_chart(value):
     mask = []
     for i in value:

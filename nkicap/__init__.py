@@ -3,7 +3,7 @@ Data analysis suit of the CAP project
 -------------------------------------
 
 """
-from .utils import Data, read_tsv, get_project_path
+from .utils import Data, get_project_path, read_tsv
 
 __all__ = [
     Data,
