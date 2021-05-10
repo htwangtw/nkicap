@@ -2,6 +2,7 @@
 Get CAP data and MRIQ of the current sample.
 Only need to be ran once for tidying things up, but keep it here for book keeping.
 """
+import os
 import json
 
 import numpy as np
@@ -72,6 +73,10 @@ def source2raw():
         cap_results["map_sub"],
         cap_results["subjects"],
     ):
+        # create subject dir
+        sub_path = f"enhanced_nki/sub-{sub}/"
+        if not os.path.exists():
+            os.makedirs(sub_path)
         t = pd.DataFrame(t, index=cap_labels, columns=cap_labels)
         m = pd.DataFrame(m, columns=cap_labels, index=range(1, 1055))
         t.to_csv(
