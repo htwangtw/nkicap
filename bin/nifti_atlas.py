@@ -1,4 +1,4 @@
-"""Combine schaefer and tian in one nifti"""
+"""Combine schaefer and tian in one nifti."""
 import nibabel as nb
 from nilearn.image import resample_img
 
