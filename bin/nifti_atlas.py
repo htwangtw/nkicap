@@ -12,7 +12,7 @@ PATH_TIAN = "data/parcellations/Tian_Subcortex_S4_3T_2009cAsym.nii.gz"
 
 
 def combine_atlas(img1, img2):
-    """Combine two atlases in the same space. """
+    """Combine two atlases in the same space."""
     max_val = np.max(img1.dataobj)
     relabe_2 = (img2.dataobj + max_val) * (img2.dataobj > 0).astype(int)
     label_combined = img1.dataobj + relabe_2
