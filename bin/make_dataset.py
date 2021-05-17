@@ -2,9 +2,8 @@
 Get CAP data and MRIQ of the current sample.
 Only need to be ran once for tidying things up, but keep it here for book keeping.
 """
-import os
 import json
-from pathlib import Path
+import os
 
 import numpy as np
 import pandas as pd
