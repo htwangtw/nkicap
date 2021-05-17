@@ -1,9 +1,9 @@
 """Combine schaefer and tian in one nifti."""
+import warnings
+
 import nibabel as nb
 import numpy as np
 from nilearn.image import resample_img
-import warnings
-
 
 PATH_SCHAEFER = (
     "data/parcellations/Schaefer2018_1000Parcels_7Networks_order_FSLMNI152_2mm.nii.gz"
