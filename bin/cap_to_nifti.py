@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 """ Map CAP values into nifti space using combined atlas."""
 
-import pandas as pd
-import numpy as np
 import nibabel as nb
+import numpy as np
+import pandas as pd
 from nilearn import plotting
-
 
 # load CAP data & select only the relevant columns (i.e., remove index column)
 cap_data = pd.read_csv("data/enhanced_nki/desc-cap_groupmap.tsv", sep="\t")

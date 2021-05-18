@@ -1,3 +1,5 @@
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -28,8 +30,8 @@ def cap_pairs(data):
     return diffs.reindex(sorted(diffs.columns), axis=1)
 
 
-def MANOVA_with_fig(cap, mriq, dataset, basepath):
-    manova = MANOVA(endog=cap, exog=mriq)
+def mmr_with_fig(endog, exog, dataset, basepath):
+    manova = MANOVA(endog=endog, exog=exog)
 
     manova.mv_test().summary_frame.to_csv(f"{basepath}/multivariate_results.csv")
     results = manova.mv_test().results
@@ -52,7 +54,7 @@ def MANOVA_with_fig(cap, mriq, dataset, basepath):
 
     df_coef = pd.DataFrame()
     df_pval = pd.DataFrame()
-    iv_formula = " + ".join(mriq.columns.tolist())
+    iv_formula = " + ".join(exog.columns.tolist())
     for dv in manova.endog_names:
         univeriate = smf.ols(formula=f"{dv} ~ {iv_formula}", data=dataset).fit()
         print(univeriate.summary())
@@ -60,7 +62,7 @@ def MANOVA_with_fig(cap, mriq, dataset, basepath):
         df_coef = df_coef.append(univeriate.params, ignore_index=True)
         df_p_adjust = pd.DataFrame(
             np.array([p_adjust[0], p_adjust[1]]).T,
-            index=["Intercept"] + mriq.columns.tolist(),
+            index=["Intercept"] + exog.columns.tolist(),
             columns=["Sig.", "p_adjusted"],
         )
         df_pval = df_pval.append(df_p_adjust.iloc[:, 1], ignore_index=True)
@@ -74,7 +76,7 @@ def MANOVA_with_fig(cap, mriq, dataset, basepath):
     df_coef.index = manova.endog_names
     df_pval.index = df_coef.index
 
-    df_coef.columns = ["Intercept"] + mriq.columns.tolist()
+    df_coef.columns = ["Intercept"] + exog.columns.tolist()
 
     plt.figure(figsize=(13, 7))
     sns.heatmap(
@@ -109,8 +111,17 @@ if __name__ == "__main__":
         mriq_drop=None,
     )
     diff = cap_pairs(data).apply(zscore)
-    cap = data.load("cap").apply(zscore)
+    dur = data.load("dur").apply(zscore)
+    occ = data.load("occ").apply(zscore)
     mriq = data.load("mriq_").apply(zscore)  # independent
-    dataset = pd.concat([mriq, diff, cap], axis=1)
-    # _ = MANOVA_with_fig(cap, mriq, dataset, "results/cap")
-    _ = MANOVA_with_fig(diff, mriq, dataset, "results/cap_diff")
+    dataset = pd.concat([mriq, diff, dur, occ], axis=1)
+
+    with open('results/mmr/cap_dur/univeriate_report.txt', 'w') as f:
+        sys.stdout = f
+        _ = mmr_with_fig(mriq, dur, dataset, "results/mmr/cap_dur")
+    with open('results/mmr/cap_dur/univeriate_report.txt', 'w') as f:
+        sys.stdout = f
+        _ = mmr_with_fig(mriq, occ, dataset, "results/mmr/cap_occ")
+    with open('results/mmr/cap_dur/univeriate_report.txt', 'w') as f:
+        sys.stdout = f
+        _ = mmr_with_fig(mriq, diff, dataset, "results/mmr/cap_diff")

@@ -68,7 +68,7 @@ def source2raw():
 
     # cap map and transition matrix
     cap_labels = [f"cap_{i+1:02d}" for i in range(8)]
-    for t, m, sub in zip(
+    for transit, capmap, sub in zip(
         cap_results["transition"],
         cap_results["map_sub"],
         cap_results["subjects"],
@@ -77,14 +77,14 @@ def source2raw():
         sub_path = f"enhanced_nki/sub-{sub}/"
         if not (data_dir / sub_path).exists():
             os.makedirs(str(data_dir / sub_path))
-        t = pd.DataFrame(t, index=cap_labels, columns=cap_labels)
-        m = pd.DataFrame(m, columns=cap_labels, index=range(1, 1055))
-        t.to_csv(
-            data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-capmap_bold.tsv",
+        transit = pd.DataFrame(transit, index=cap_labels, columns=cap_labels)
+        capmap = pd.DataFrame(capmap, columns=cap_labels, index=range(1, 1055))
+        transit.to_csv(
+            data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-transition.tsv",
             sep="\t",
         )
-        m.to_csv(
-            data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-transition.tsv",
+        capmap.to_csv(
+            data_dir / f"enhanced_nki/sub-{sub}/sub-{sub}_desc-capmap_bold.tsv",
             sep="\t",
         )
 
