@@ -46,7 +46,5 @@ for cap in caps:
         title="Combined_{}".format(cap),
     )
     plotting.show()
-    nifti = nb.Nifti1Image(new_nifti_data,
-                           header=com.header,
-                           affine=com.affine)
+    nifti = nb.Nifti1Image(new_nifti_data, header=com.header, affine=com.affine)
     nb.save(nifti, 'results/cap_nifti/group_{}.nii.gz'.format(cap))
