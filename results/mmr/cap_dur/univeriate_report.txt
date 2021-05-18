@@ -1,0 +1,1372 @@
+partical eta squared of dur cap 01 02: 0.04196407023324544
+partical eta squared of dur cap 03 04: 0.03755519400046681
+partical eta squared of dur cap 05 06: 0.07147142655299833
+partical eta squared of dur cap 07 08: 0.05987591856062979
+partical eta squared of occ cap 01 02: 0.032819385255939526
+partical eta squared of occ cap 03 04: 0.040624111659212536
+partical eta squared of occ cap 05 06: 0.0552727704008521
+partical eta squared of occ cap 07 08: 0.03977119070721846
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Concerns   R-squared:                       0.013
+Model:                            OLS   Adj. R-squared:                  0.001
+Method:                 Least Squares   F-statistic:                     1.118
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.348
+Time:                        18:07:55   Log-Likelihood:                -1002.9
+No. Observations:                 710   AIC:                             2024.
+Df Residuals:                     701   BIC:                             2065.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      -2.32e-17      0.038  -6.18e-16      1.000      -0.074       0.074
+dur_cap_01_02    -0.0179      0.047     -0.384      0.701      -0.109       0.074
+dur_cap_03_04    -0.0226      0.048     -0.467      0.640      -0.117       0.072
+dur_cap_05_06     0.1210      0.047      2.593      0.010       0.029       0.213
+dur_cap_07_08     0.0122      0.050      0.245      0.807      -0.085       0.110
+occ_cap_01_02     0.0288      0.046      0.620      0.535      -0.062       0.120
+occ_cap_03_04    -0.0103      0.049     -0.210      0.834      -0.106       0.086
+occ_cap_05_06    -0.0360      0.048     -0.752      0.452      -0.130       0.058
+occ_cap_07_08     0.0042      0.050      0.084      0.933      -0.094       0.102
+==============================================================================
+Omnibus:                      108.520   Durbin-Watson:                   2.112
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              158.992
+Skew:                           1.150   Prob(JB):                     2.99e-35
+Kurtosis:                       3.294   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.087465
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 People   R-squared:                       0.018
+Model:                            OLS   Adj. R-squared:                  0.007
+Method:                 Least Squares   F-statistic:                     1.621
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.115
+Time:                        18:07:55   Log-Likelihood:                -1000.9
+No. Observations:                 710   AIC:                             2020.
+Df Residuals:                     701   BIC:                             2061.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.106e-16      0.037  -2.95e-15      1.000      -0.073       0.073
+dur_cap_01_02     0.0040      0.046      0.086      0.931      -0.087       0.095
+dur_cap_03_04     0.0687      0.048      1.427      0.154      -0.026       0.163
+dur_cap_05_06     0.1027      0.047      2.207      0.028       0.011       0.194
+dur_cap_07_08    -0.0668      0.050     -1.347      0.179      -0.164       0.031
+occ_cap_01_02    -0.0676      0.046     -1.460      0.145      -0.159       0.023
+occ_cap_03_04    -0.0518      0.049     -1.061      0.289      -0.148       0.044
+occ_cap_05_06    -0.0090      0.048     -0.189      0.850      -0.103       0.085
+occ_cap_07_08     0.0687      0.050      1.385      0.166      -0.029       0.166
+==============================================================================
+Omnibus:                      131.128   Durbin-Watson:                   2.042
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              205.321
+Skew:                           1.283   Prob(JB):                     2.60e-45
+Kurtosis:                       3.598   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.248474
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 Friend   R-squared:                       0.010
+Model:                            OLS   Adj. R-squared:                 -0.002
+Method:                 Least Squares   F-statistic:                    0.8546
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.555
+Time:                        18:07:55   Log-Likelihood:                -1004.0
+No. Observations:                 710   AIC:                             2026.
+Df Residuals:                     701   BIC:                             2067.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.128e-16      0.038     -3e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0272      0.047     -0.584      0.559      -0.119       0.064
+dur_cap_03_04     0.0002      0.048      0.004      0.997      -0.095       0.095
+dur_cap_05_06     0.0024      0.047      0.051      0.959      -0.089       0.094
+dur_cap_07_08     0.1078      0.050      2.165      0.031       0.010       0.206
+occ_cap_01_02     0.0150      0.047      0.323      0.747      -0.076       0.106
+occ_cap_03_04    -0.0313      0.049     -0.639      0.523      -0.128       0.065
+occ_cap_05_06     0.0160      0.048      0.335      0.738      -0.078       0.110
+occ_cap_07_08    -0.0418      0.050     -0.839      0.402      -0.140       0.056
+==============================================================================
+Omnibus:                     6611.908   Durbin-Watson:                   2.034
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               66.996
+Skew:                           0.179   Prob(JB):                     2.83e-15
+Kurtosis:                       1.538   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    0.276691
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 Family   R-squared:                       0.009
+Model:                            OLS   Adj. R-squared:                 -0.003
+Method:                 Least Squares   F-statistic:                    0.7664
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.633
+Time:                        18:07:55   Log-Likelihood:                -1004.4
+No. Observations:                 710   AIC:                             2027.
+Df Residuals:                     701   BIC:                             2068.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -4.135e-16      0.038   -1.1e-14      1.000      -0.074       0.074
+dur_cap_01_02     0.0338      0.047      0.724      0.469      -0.058       0.125
+dur_cap_03_04     0.0240      0.048      0.496      0.620      -0.071       0.119
+dur_cap_05_06    -0.0848      0.047     -1.813      0.070      -0.177       0.007
+dur_cap_07_08     0.0344      0.050      0.689      0.491      -0.064       0.132
+occ_cap_01_02    -0.0293      0.047     -0.630      0.529      -0.121       0.062
+occ_cap_03_04    -0.0139      0.049     -0.283      0.777      -0.110       0.082
+occ_cap_05_06     0.0071      0.048      0.149      0.882      -0.087       0.101
+occ_cap_07_08    -0.0132      0.050     -0.264      0.792      -0.111       0.085
+==============================================================================
+Omnibus:                     9204.912   Durbin-Watson:                   2.080
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               62.891
+Skew:                           0.163   Prob(JB):                     2.21e-14
+Kurtosis:                       1.579   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.632783
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             Today_Past   R-squared:                       0.012
+Model:                            OLS   Adj. R-squared:                  0.001
+Method:                 Least Squares   F-statistic:                     1.078
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.376
+Time:                        18:07:55   Log-Likelihood:                -1003.1
+No. Observations:                 710   AIC:                             2024.
+Df Residuals:                     701   BIC:                             2065.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -3.643e-17      0.038   -9.7e-16      1.000      -0.074       0.074
+dur_cap_01_02     0.0028      0.047      0.060      0.952      -0.089       0.094
+dur_cap_03_04     0.0160      0.048      0.332      0.740      -0.079       0.111
+dur_cap_05_06     0.1195      0.047      2.560      0.011       0.028       0.211
+dur_cap_07_08     0.0457      0.050      0.918      0.359      -0.052       0.143
+occ_cap_01_02    -0.0122      0.046     -0.263      0.793      -0.103       0.079
+occ_cap_03_04    -0.0302      0.049     -0.617      0.537      -0.126       0.066
+occ_cap_05_06    -0.0541      0.048     -1.130      0.259      -0.148       0.040
+occ_cap_07_08    -0.0325      0.050     -0.653      0.514      -0.130       0.065
+==============================================================================
+Omnibus:                      106.749   Durbin-Watson:                   2.176
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              157.821
+Skew:                           1.155   Prob(JB):                     5.37e-35
+Kurtosis:                       2.961   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.096205
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          Social_Future   R-squared:                       0.019
+Model:                            OLS   Adj. R-squared:                  0.007
+Method:                 Least Squares   F-statistic:                     1.666
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.103
+Time:                        18:07:55   Log-Likelihood:                -1000.8
+No. Observations:                 710   AIC:                             2020.
+Df Residuals:                     701   BIC:                             2061.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      -8.37e-17      0.037  -2.24e-15      1.000      -0.073       0.073
+dur_cap_01_02    -0.0113      0.046     -0.244      0.808      -0.102       0.080
+dur_cap_03_04    -0.0101      0.048     -0.209      0.835      -0.105       0.084
+dur_cap_05_06     0.0728      0.047      1.564      0.118      -0.019       0.164
+dur_cap_07_08     0.0968      0.050      1.952      0.051      -0.001       0.194
+occ_cap_01_02     0.0032      0.046      0.069      0.945      -0.088       0.094
+occ_cap_03_04     0.0023      0.049      0.047      0.962      -0.094       0.098
+occ_cap_05_06     0.0554      0.048      1.161      0.246      -0.038       0.149
+occ_cap_07_08    -0.0222      0.050     -0.448      0.655      -0.120       0.075
+==============================================================================
+Omnibus:                     9472.722   Durbin-Watson:                   1.981
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               70.035
+Skew:                           0.298   Prob(JB):                     6.19e-16
+Kurtosis:                       1.581   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0     1.00000
+dur_cap_01_02   0.0     1.00000
+dur_cap_03_04   0.0     1.00000
+dur_cap_05_06   0.0     1.00000
+dur_cap_07_08   0.0     0.46247
+occ_cap_01_02   0.0     1.00000
+occ_cap_03_04   0.0     1.00000
+occ_cap_05_06   0.0     1.00000
+occ_cap_07_08   0.0     1.00000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            Social_Past   R-squared:                       0.019
+Model:                            OLS   Adj. R-squared:                  0.008
+Method:                 Least Squares   F-statistic:                     1.736
+Date:                Tue, 18 May 2021   Prob (F-statistic):             0.0869
+Time:                        18:07:55   Log-Likelihood:                -1000.5
+No. Observations:                 710   AIC:                             2019.
+Df Residuals:                     701   BIC:                             2060.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -3.036e-18      0.037  -8.12e-17      1.000      -0.073       0.073
+dur_cap_01_02     0.0147      0.046      0.317      0.751      -0.076       0.106
+dur_cap_03_04    -0.0232      0.048     -0.483      0.629      -0.118       0.071
+dur_cap_05_06     0.1256      0.047      2.700      0.007       0.034       0.217
+dur_cap_07_08     0.0782      0.050      1.577      0.115      -0.019       0.175
+occ_cap_01_02    -0.0013      0.046     -0.028      0.977      -0.092       0.090
+occ_cap_03_04     0.0072      0.049      0.148      0.882      -0.089       0.103
+occ_cap_05_06    -0.1200      0.048     -2.517      0.012      -0.214      -0.026
+occ_cap_07_08    -0.0660      0.050     -1.332      0.183      -0.163       0.031
+==============================================================================
+Omnibus:                      840.738   Durbin-Watson:                   2.127
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               73.593
+Skew:                           0.475   Prob(JB):                     1.05e-16
+Kurtosis:                       1.741   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.063968
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    0.108405
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           NearLocation   R-squared:                       0.019
+Model:                            OLS   Adj. R-squared:                  0.008
+Method:                 Least Squares   F-statistic:                     1.738
+Date:                Tue, 18 May 2021   Prob (F-statistic):             0.0864
+Time:                        18:07:55   Log-Likelihood:                -1000.5
+No. Observations:                 710   AIC:                             2019.
+Df Residuals:                     701   BIC:                             2060.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.431e-17      0.037  -3.83e-16      1.000      -0.073       0.073
+dur_cap_01_02    -0.0157      0.046     -0.338      0.736      -0.107       0.075
+dur_cap_03_04    -0.0754      0.048     -1.567      0.118      -0.170       0.019
+dur_cap_05_06     0.0847      0.047      1.822      0.069      -0.007       0.176
+dur_cap_07_08     0.0791      0.050      1.595      0.111      -0.018       0.176
+occ_cap_01_02    -0.0297      0.046     -0.641      0.522      -0.121       0.061
+occ_cap_03_04     0.0527      0.049      1.080      0.281      -0.043       0.149
+occ_cap_05_06    -0.1076      0.048     -2.258      0.024      -0.201      -0.014
+occ_cap_07_08    -0.0479      0.050     -0.967      0.334      -0.145       0.049
+==============================================================================
+Omnibus:                      106.729   Durbin-Watson:                   2.075
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              157.495
+Skew:                           1.153   Prob(JB):                     6.32e-35
+Kurtosis:                       3.049   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.620500
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    0.218356
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Guilt   R-squared:                       0.019
+Model:                            OLS   Adj. R-squared:                  0.007
+Method:                 Least Squares   F-statistic:                     1.659
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.105
+Time:                        18:07:55   Log-Likelihood:                -1000.8
+No. Observations:                 710   AIC:                             2020.
+Df Residuals:                     701   BIC:                             2061.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      1.128e-16      0.037   3.01e-15      1.000      -0.073       0.073
+dur_cap_01_02    -0.0184      0.046     -0.396      0.692      -0.109       0.073
+dur_cap_03_04     0.0214      0.048      0.445      0.656      -0.073       0.116
+dur_cap_05_06     0.1550      0.047      3.331      0.001       0.064       0.246
+dur_cap_07_08    -0.0101      0.050     -0.205      0.838      -0.108       0.087
+occ_cap_01_02    -0.0142      0.046     -0.308      0.759      -0.105       0.077
+occ_cap_03_04    -0.0498      0.049     -1.020      0.308      -0.146       0.046
+occ_cap_05_06    -0.0765      0.048     -1.605      0.109      -0.170       0.017
+occ_cap_07_08     0.0234      0.050      0.471      0.638      -0.074       0.121
+==============================================================================
+Omnibus:                      349.612   Durbin-Watson:                   2.094
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1421.505
+Skew:                           2.393   Prob(JB):                    2.11e-309
+Kurtosis:                       8.014   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   1.0    0.008203
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    0.980700
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             Today_Plan   R-squared:                       0.004
+Model:                            OLS   Adj. R-squared:                 -0.007
+Method:                 Least Squares   F-statistic:                    0.3927
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.925
+Time:                        18:07:55   Log-Likelihood:                -1005.9
+No. Observations:                 710   AIC:                             2030.
+Df Residuals:                     701   BIC:                             2071.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -4.424e-17      0.038  -1.17e-15      1.000      -0.074       0.074
+dur_cap_01_02     0.0459      0.047      0.983      0.326      -0.046       0.138
+dur_cap_03_04    -0.0082      0.048     -0.168      0.866      -0.103       0.087
+dur_cap_05_06     0.0449      0.047      0.958      0.338      -0.047       0.137
+dur_cap_07_08    -0.0011      0.050     -0.023      0.982      -0.099       0.097
+occ_cap_01_02    -0.0348      0.047     -0.746      0.456      -0.126       0.057
+occ_cap_03_04    -0.0176      0.049     -0.358      0.721      -0.114       0.079
+occ_cap_05_06     0.0132      0.048      0.275      0.783      -0.081       0.108
+occ_cap_07_08    -0.0036      0.050     -0.073      0.942      -0.102       0.094
+==============================================================================
+Omnibus:                     5823.281   Durbin-Watson:                   1.933
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               68.169
+Skew:                           0.153   Prob(JB):                     1.58e-15
+Kurtosis:                       1.513   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             RecentPast   R-squared:                       0.017
+Model:                            OLS   Adj. R-squared:                  0.005
+Method:                 Least Squares   F-statistic:                     1.472
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.164
+Time:                        18:07:55   Log-Likelihood:                -1001.5
+No. Observations:                 710   AIC:                             2021.
+Df Residuals:                     701   BIC:                             2062.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -9.086e-17      0.037  -2.43e-15      1.000      -0.074       0.074
+dur_cap_01_02     0.0727      0.046      1.564      0.118      -0.019       0.164
+dur_cap_03_04     0.0016      0.048      0.034      0.973      -0.093       0.096
+dur_cap_05_06     0.1045      0.047      2.243      0.025       0.013       0.196
+dur_cap_07_08     0.0343      0.050      0.692      0.489      -0.063       0.132
+occ_cap_01_02    -0.0052      0.046     -0.111      0.911      -0.096       0.086
+occ_cap_03_04    -0.0621      0.049     -1.271      0.204      -0.158       0.034
+occ_cap_05_06    -0.0281      0.048     -0.589      0.556      -0.122       0.066
+occ_cap_07_08    -0.0383      0.050     -0.771      0.441      -0.136       0.059
+==============================================================================
+Omnibus:                     1581.819   Durbin-Watson:                   2.021
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               69.482
+Skew:                           0.396   Prob(JB):                     8.17e-16
+Kurtosis:                       1.688   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.227064
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            DistantPast   R-squared:                       0.008
+Model:                            OLS   Adj. R-squared:                 -0.003
+Method:                 Least Squares   F-statistic:                    0.7206
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.673
+Time:                        18:07:55   Log-Likelihood:                -1004.5
+No. Observations:                 710   AIC:                             2027.
+Df Residuals:                     701   BIC:                             2068.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      1.269e-16      0.038   3.37e-15      1.000      -0.074       0.074
+dur_cap_01_02     0.0571      0.047      1.225      0.221      -0.034       0.149
+dur_cap_03_04    -0.0016      0.048     -0.034      0.973      -0.097       0.093
+dur_cap_05_06     0.0360      0.047      0.771      0.441      -0.056       0.128
+dur_cap_07_08     0.0684      0.050      1.372      0.171      -0.029       0.166
+occ_cap_01_02    -0.0519      0.047     -1.116      0.265      -0.143       0.039
+occ_cap_03_04    -0.0241      0.049     -0.490      0.624      -0.120       0.072
+occ_cap_05_06    -0.0350      0.048     -0.731      0.465      -0.129       0.059
+occ_cap_07_08    -0.0657      0.050     -1.317      0.188      -0.164       0.032
+==============================================================================
+Omnibus:                      125.355   Durbin-Watson:                   2.047
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              196.678
+Skew:                           1.286   Prob(JB):                     1.96e-43
+Kurtosis:                       3.195   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Anger   R-squared:                       0.015
+Model:                            OLS   Adj. R-squared:                  0.004
+Method:                 Least Squares   F-statistic:                     1.369
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.207
+Time:                        18:07:55   Log-Likelihood:                -1001.9
+No. Observations:                 710   AIC:                             2022.
+Df Residuals:                     701   BIC:                             2063.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      1.878e-16      0.037   5.01e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0461      0.046     -0.991      0.322      -0.137       0.045
+dur_cap_03_04     0.0337      0.048      0.700      0.484      -0.061       0.128
+dur_cap_05_06     0.0705      0.047      1.512      0.131      -0.021       0.162
+dur_cap_07_08     0.0288      0.050      0.580      0.562      -0.069       0.126
+occ_cap_01_02     0.0216      0.046      0.465      0.642      -0.070       0.113
+occ_cap_03_04    -0.1109      0.049     -2.268      0.024      -0.207      -0.015
+occ_cap_05_06     0.0121      0.048      0.253      0.800      -0.082       0.106
+occ_cap_07_08    -0.0195      0.050     -0.392      0.695      -0.117       0.078
+==============================================================================
+Omnibus:                      362.016   Durbin-Watson:                   2.093
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1539.503
+Skew:                           2.473   Prob(JB):                         0.00
+Kurtosis:                       8.251   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    0.212654
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              Happiness   R-squared:                       0.008
+Model:                            OLS   Adj. R-squared:                 -0.003
+Method:                 Least Squares   F-statistic:                    0.7297
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.665
+Time:                        18:07:55   Log-Likelihood:                -1004.5
+No. Observations:                 710   AIC:                             2027.
+Df Residuals:                     701   BIC:                             2068.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.622e-16      0.038  -4.31e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0247      0.047     -0.530      0.596      -0.116       0.067
+dur_cap_03_04    -0.0131      0.048     -0.271      0.786      -0.108       0.082
+dur_cap_05_06     0.0064      0.047      0.137      0.891      -0.085       0.098
+dur_cap_07_08     0.0336      0.050      0.674      0.500      -0.064       0.132
+occ_cap_01_02    -0.0306      0.047     -0.656      0.512      -0.122       0.061
+occ_cap_03_04    -0.0506      0.049     -1.030      0.303      -0.147       0.046
+occ_cap_05_06     0.0471      0.048      0.982      0.326      -0.047       0.141
+occ_cap_07_08    -0.0363      0.050     -0.729      0.467      -0.134       0.062
+==============================================================================
+Omnibus:                     6032.109   Durbin-Watson:                   1.948
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               65.019
+Skew:                          -0.051   Prob(JB):                     7.61e-15
+Kurtosis:                       1.521   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           Cheerfulness   R-squared:                       0.007
+Model:                            OLS   Adj. R-squared:                 -0.004
+Method:                 Least Squares   F-statistic:                    0.6295
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.753
+Time:                        18:07:55   Log-Likelihood:                -1004.9
+No. Observations:                 710   AIC:                             2028.
+Df Residuals:                     701   BIC:                             2069.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      4.944e-17      0.038   1.31e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0407      0.047     -0.873      0.383      -0.132       0.051
+dur_cap_03_04     0.0333      0.048      0.687      0.492      -0.062       0.128
+dur_cap_05_06     0.0126      0.047      0.270      0.787      -0.079       0.105
+dur_cap_07_08     0.0476      0.050      0.955      0.340      -0.050       0.146
+occ_cap_01_02    -0.0029      0.047     -0.063      0.950      -0.094       0.089
+occ_cap_03_04    -0.0689      0.049     -1.402      0.161      -0.165       0.028
+occ_cap_05_06     0.0043      0.048      0.090      0.928      -0.090       0.098
+occ_cap_07_08    -0.0499      0.050     -0.999      0.318      -0.148       0.048
+==============================================================================
+Omnibus:                     7494.248   Durbin-Watson:                   1.926
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               61.762
+Skew:                           0.040   Prob(JB):                     3.88e-14
+Kurtosis:                       1.557   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   Calm   R-squared:                       0.008
+Model:                            OLS   Adj. R-squared:                 -0.003
+Method:                 Least Squares   F-statistic:                    0.7273
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.668
+Time:                        18:07:55   Log-Likelihood:                -1004.5
+No. Observations:                 710   AIC:                             2027.
+Df Residuals:                     701   BIC:                             2068.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept       1.34e-16      0.038   3.56e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0602      0.047     -1.290      0.198      -0.152       0.031
+dur_cap_03_04    -0.0078      0.048     -0.160      0.873      -0.103       0.087
+dur_cap_05_06    -0.0222      0.047     -0.474      0.636      -0.114       0.070
+dur_cap_07_08     0.0049      0.050      0.097      0.922      -0.093       0.103
+occ_cap_01_02     0.0108      0.047      0.231      0.817      -0.081       0.102
+occ_cap_03_04    -0.0284      0.049     -0.580      0.562      -0.125       0.068
+occ_cap_05_06     0.0591      0.048      1.232      0.218      -0.035       0.153
+occ_cap_07_08    -0.0469      0.050     -0.941      0.347      -0.145       0.051
+==============================================================================
+Omnibus:                      371.317   Durbin-Watson:                   1.949
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               60.692
+Skew:                          -0.425   Prob(JB):                     6.62e-14
+Kurtosis:                       1.847   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                Sadness   R-squared:                       0.013
+Model:                            OLS   Adj. R-squared:                  0.002
+Method:                 Least Squares   F-statistic:                     1.155
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.324
+Time:                        18:07:55   Log-Likelihood:                -1002.8
+No. Observations:                 710   AIC:                             2024.
+Df Residuals:                     701   BIC:                             2065.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      3.123e-17      0.038   8.32e-16      1.000      -0.074       0.074
+dur_cap_01_02    -0.0082      0.047     -0.176      0.861      -0.100       0.083
+dur_cap_03_04     0.0278      0.048      0.576      0.565      -0.067       0.123
+dur_cap_05_06     0.0500      0.047      1.071      0.284      -0.042       0.142
+dur_cap_07_08     0.1054      0.050      2.119      0.034       0.008       0.203
+occ_cap_01_02     0.0376      0.046      0.809      0.419      -0.054       0.129
+occ_cap_03_04    -0.0266      0.049     -0.542      0.588      -0.123       0.070
+occ_cap_05_06    -0.0366      0.048     -0.765      0.444      -0.130       0.057
+occ_cap_07_08    -0.0241      0.050     -0.485      0.628      -0.122       0.074
+==============================================================================
+Omnibus:                      268.116   Durbin-Watson:                   2.136
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              726.525
+Skew:                           1.972   Prob(JB):                    1.73e-158
+Kurtosis:                       6.000   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    0.309965
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             Importance   R-squared:                       0.012
+Model:                            OLS   Adj. R-squared:                  0.001
+Method:                 Least Squares   F-statistic:                     1.051
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.396
+Time:                        18:07:55   Log-Likelihood:                -1003.2
+No. Observations:                 710   AIC:                             2024.
+Df Residuals:                     701   BIC:                             2066.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      4.163e-17      0.038   1.11e-15      1.000      -0.074       0.074
+dur_cap_01_02     0.0462      0.047      0.993      0.321      -0.045       0.138
+dur_cap_03_04     0.0558      0.048      1.154      0.249      -0.039       0.151
+dur_cap_05_06     0.0631      0.047      1.352      0.177      -0.029       0.155
+dur_cap_07_08     0.0098      0.050      0.197      0.844      -0.088       0.107
+occ_cap_01_02    -0.0770      0.046     -1.657      0.098      -0.168       0.014
+occ_cap_03_04    -0.0606      0.049     -1.238      0.216      -0.157       0.036
+occ_cap_05_06     0.0241      0.048      0.503      0.615      -0.070       0.118
+occ_cap_07_08     0.0003      0.050      0.006      0.995      -0.097       0.098
+==============================================================================
+Omnibus:                     1123.939   Durbin-Watson:                   1.997
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               67.280
+Skew:                          -0.393   Prob(JB):                     2.46e-15
+Kurtosis:                       1.713   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    0.882264
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            TodayFuture   R-squared:                       0.010
+Model:                            OLS   Adj. R-squared:                 -0.001
+Method:                 Least Squares   F-statistic:                    0.9073
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.510
+Time:                        18:07:55   Log-Likelihood:                -1003.8
+No. Observations:                 710   AIC:                             2026.
+Df Residuals:                     701   BIC:                             2067.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -4.749e-17      0.038  -1.26e-15      1.000      -0.074       0.074
+dur_cap_01_02     0.0207      0.047      0.445      0.656      -0.071       0.112
+dur_cap_03_04     0.0014      0.048      0.030      0.976      -0.094       0.096
+dur_cap_05_06     0.0714      0.047      1.528      0.127      -0.020       0.163
+dur_cap_07_08     0.0103      0.050      0.208      0.836      -0.087       0.108
+occ_cap_01_02     0.0090      0.047      0.193      0.847      -0.082       0.100
+occ_cap_03_04    -0.0381      0.049     -0.778      0.437      -0.134       0.058
+occ_cap_05_06     0.0232      0.048      0.484      0.629      -0.071       0.117
+occ_cap_07_08    -0.0540      0.050     -1.084      0.279      -0.152       0.044
+==============================================================================
+Omnibus:                     4721.285   Durbin-Watson:                   1.937
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               71.130
+Skew:                           0.022   Prob(JB):                     3.58e-16
+Kurtosis:                       1.450   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          DistantFuture   R-squared:                       0.005
+Model:                            OLS   Adj. R-squared:                 -0.006
+Method:                 Least Squares   F-statistic:                    0.4577
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.886
+Time:                        18:07:55   Log-Likelihood:                -1005.6
+No. Observations:                 710   AIC:                             2029.
+Df Residuals:                     701   BIC:                             2070.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      1.058e-16      0.038   2.81e-15      1.000      -0.074       0.074
+dur_cap_01_02     0.0532      0.047      1.138      0.255      -0.039       0.145
+dur_cap_03_04    -0.0370      0.048     -0.763      0.445      -0.132       0.058
+dur_cap_05_06     0.0366      0.047      0.781      0.435      -0.055       0.129
+dur_cap_07_08     0.0247      0.050      0.496      0.620      -0.073       0.123
+occ_cap_01_02    -0.0336      0.047     -0.721      0.471      -0.125       0.058
+occ_cap_03_04    -0.0010      0.049     -0.021      0.983      -0.098       0.095
+occ_cap_05_06     0.0030      0.048      0.063      0.950      -0.091       0.097
+occ_cap_07_08    -0.0345      0.050     -0.690      0.490      -0.133       0.064
+==============================================================================
+Omnibus:                    10225.630   Durbin-Watson:                   1.868
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               79.169
+Skew:                           0.412   Prob(JB):                     6.44e-18
+Kurtosis:                       1.587   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             NearFuture   R-squared:                       0.013
+Model:                            OLS   Adj. R-squared:                  0.002
+Method:                 Least Squares   F-statistic:                     1.190
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.302
+Time:                        18:07:55   Log-Likelihood:                -1002.7
+No. Observations:                 710   AIC:                             2023.
+Df Residuals:                     701   BIC:                             2064.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.145e-16      0.038  -3.05e-15      1.000      -0.074       0.074
+dur_cap_01_02     0.0814      0.047      1.749      0.081      -0.010       0.173
+dur_cap_03_04    -0.0203      0.048     -0.420      0.674      -0.115       0.074
+dur_cap_05_06     0.0256      0.047      0.549      0.583      -0.066       0.117
+dur_cap_07_08     0.1093      0.050      2.198      0.028       0.012       0.207
+occ_cap_01_02    -0.0219      0.046     -0.472      0.637      -0.113       0.069
+occ_cap_03_04     0.0013      0.049      0.027      0.979      -0.095       0.097
+occ_cap_05_06     0.0079      0.048      0.164      0.869      -0.086       0.102
+occ_cap_07_08    -0.0952      0.050     -1.913      0.056      -0.193       0.002
+==============================================================================
+Omnibus:                     5648.919   Durbin-Watson:                   2.011
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               67.912
+Skew:                           0.125   Prob(JB):                     1.79e-15
+Kurtosis:                       1.506   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    0.726658
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    0.254492
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    0.505204
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                Worries   R-squared:                       0.012
+Model:                            OLS   Adj. R-squared:                  0.001
+Method:                 Least Squares   F-statistic:                     1.094
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.365
+Time:                        18:07:55   Log-Likelihood:                -1003.0
+No. Observations:                 710   AIC:                             2024.
+Df Residuals:                     701   BIC:                             2065.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      7.763e-17      0.038   2.07e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0094      0.047     -0.203      0.840      -0.101       0.082
+dur_cap_03_04    -0.0016      0.048     -0.034      0.973      -0.096       0.093
+dur_cap_05_06     0.0909      0.047      1.947      0.052      -0.001       0.183
+dur_cap_07_08     0.0433      0.050      0.871      0.384      -0.054       0.141
+occ_cap_01_02    -0.0043      0.046     -0.092      0.927      -0.096       0.087
+occ_cap_03_04    -0.0681      0.049     -1.391      0.165      -0.164       0.028
+occ_cap_05_06    -0.0320      0.048     -0.670      0.503      -0.126       0.062
+occ_cap_07_08    -0.0281      0.050     -0.564      0.573      -0.126       0.070
+==============================================================================
+Omnibus:                       94.953   Durbin-Watson:                   2.049
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              103.587
+Skew:                           0.883   Prob(JB):                     3.21e-23
+Kurtosis:                       2.382   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    0.467642
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        DistantLocation   R-squared:                       0.011
+Model:                            OLS   Adj. R-squared:                 -0.001
+Method:                 Least Squares   F-statistic:                    0.9417
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.481
+Time:                        18:07:55   Log-Likelihood:                -1003.7
+No. Observations:                 710   AIC:                             2025.
+Df Residuals:                     701   BIC:                             2066.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -6.332e-17      0.038  -1.69e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0148      0.047     -0.318      0.751      -0.106       0.077
+dur_cap_03_04    -0.0256      0.048     -0.529      0.597      -0.120       0.069
+dur_cap_05_06     0.0270      0.047      0.577      0.564      -0.065       0.119
+dur_cap_07_08     0.0959      0.050      1.926      0.055      -0.002       0.194
+occ_cap_01_02    -0.0169      0.047     -0.364      0.716      -0.108       0.074
+occ_cap_03_04    -0.0129      0.049     -0.263      0.793      -0.109       0.083
+occ_cap_05_06    -0.0404      0.048     -0.843      0.400      -0.134       0.054
+occ_cap_07_08    -0.0969      0.050     -1.945      0.052      -0.195       0.001
+==============================================================================
+Omnibus:                      189.105   Durbin-Watson:                   2.104
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              358.348
+Skew:                           1.612   Prob(JB):                     1.53e-78
+Kurtosis:                       4.309   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    0.491120
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    0.470063
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Image   R-squared:                       0.018
+Model:                            OLS   Adj. R-squared:                  0.007
+Method:                 Least Squares   F-statistic:                     1.603
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.120
+Time:                        18:07:55   Log-Likelihood:                -1001.0
+No. Observations:                 710   AIC:                             2020.
+Df Residuals:                     701   BIC:                             2061.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.036e-16      0.037  -2.77e-15      1.000      -0.073       0.073
+dur_cap_01_02     0.0037      0.046      0.081      0.936      -0.087       0.095
+dur_cap_03_04    -0.0183      0.048     -0.379      0.704      -0.113       0.076
+dur_cap_05_06    -0.0112      0.047     -0.241      0.810      -0.103       0.080
+dur_cap_07_08     0.0637      0.050      1.284      0.200      -0.034       0.161
+occ_cap_01_02    -0.0551      0.046     -1.190      0.234      -0.146       0.036
+occ_cap_03_04    -0.0712      0.049     -1.457      0.146      -0.167       0.025
+occ_cap_05_06     0.1011      0.048      2.119      0.034       0.007       0.195
+occ_cap_07_08    -0.0180      0.050     -0.364      0.716      -0.115       0.079
+==============================================================================
+Omnibus:                     2270.376   Durbin-Watson:                   2.082
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               59.317
+Skew:                           0.240   Prob(JB):                     1.32e-13
+Kurtosis:                       1.668   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    1.000000
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    0.309929
+occ_cap_07_08   0.0    1.000000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Words   R-squared:                       0.018
+Model:                            OLS   Adj. R-squared:                  0.007
+Method:                 Least Squares   F-statistic:                     1.651
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.107
+Time:                        18:07:55   Log-Likelihood:                -1000.8
+No. Observations:                 710   AIC:                             2020.
+Df Residuals:                     701   BIC:                             2061.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -5.421e-17      0.037  -1.45e-15      1.000      -0.073       0.073
+dur_cap_01_02    -0.0435      0.046     -0.936      0.349      -0.135       0.048
+dur_cap_03_04    -0.0968      0.048     -2.010      0.045      -0.191      -0.002
+dur_cap_05_06    -0.0098      0.047     -0.210      0.834      -0.101       0.082
+dur_cap_07_08     0.1128      0.050      2.273      0.023       0.015       0.210
+occ_cap_01_02    -0.0295      0.046     -0.638      0.524      -0.120       0.061
+occ_cap_03_04     0.0555      0.049      1.137      0.256      -0.040       0.151
+occ_cap_05_06    -0.0166      0.048     -0.348      0.728      -0.110       0.077
+occ_cap_07_08    -0.1112      0.050     -2.242      0.025      -0.209      -0.014
+==============================================================================
+Omnibus:                      224.683   Durbin-Watson:                   1.916
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               72.078
+Skew:                           0.578   Prob(JB):                     2.23e-16
+Kurtosis:                       1.952   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    0.403573
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    0.209729
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    0.227694
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              Monologue   R-squared:                       0.014
+Model:                            OLS   Adj. R-squared:                  0.003
+Method:                 Least Squares   F-statistic:                     1.258
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.262
+Time:                        18:07:55   Log-Likelihood:                -1002.4
+No. Observations:                 710   AIC:                             2023.
+Df Residuals:                     701   BIC:                             2064.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.013e-16      0.038   -2.7e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0282      0.047     -0.606      0.545      -0.119       0.063
+dur_cap_03_04    -0.0500      0.048     -1.036      0.301      -0.145       0.045
+dur_cap_05_06    -0.0439      0.047     -0.942      0.347      -0.135       0.048
+dur_cap_07_08     0.1023      0.050      2.059      0.040       0.005       0.200
+occ_cap_01_02     0.0130      0.046      0.280      0.779      -0.078       0.104
+occ_cap_03_04     0.0736      0.049      1.504      0.133      -0.022       0.170
+occ_cap_05_06     0.0506      0.048      1.059      0.290      -0.043       0.144
+occ_cap_07_08    -0.1199      0.050     -2.412      0.016      -0.218      -0.022
+==============================================================================
+Omnibus:                    38294.649   Durbin-Watson:                   1.964
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               68.572
+Skew:                           0.319   Prob(JB):                     1.29e-15
+Kurtosis:                       1.618   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0    1.000000
+dur_cap_01_02   0.0    1.000000
+dur_cap_03_04   0.0    1.000000
+dur_cap_05_06   0.0    1.000000
+dur_cap_07_08   0.0    0.358715
+occ_cap_01_02   0.0    1.000000
+occ_cap_03_04   0.0    1.000000
+occ_cap_05_06   0.0    1.000000
+occ_cap_07_08   0.0    0.144970
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   Film   R-squared:                       0.021
+Model:                            OLS   Adj. R-squared:                  0.010
+Method:                 Least Squares   F-statistic:                     1.890
+Date:                Tue, 18 May 2021   Prob (F-statistic):             0.0587
+Time:                        18:07:55   Log-Likelihood:                -999.87
+No. Observations:                 710   AIC:                             2018.
+Df Residuals:                     701   BIC:                             2059.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -6.505e-18      0.037  -1.74e-16      1.000      -0.073       0.073
+dur_cap_01_02     0.0586      0.046      1.264      0.207      -0.032       0.150
+dur_cap_03_04     0.0066      0.048      0.137      0.891      -0.088       0.101
+dur_cap_05_06     0.0498      0.046      1.072      0.284      -0.041       0.141
+dur_cap_07_08     0.1302      0.050      2.629      0.009       0.033       0.227
+occ_cap_01_02    -0.0660      0.046     -1.427      0.154      -0.157       0.025
+occ_cap_03_04     0.0207      0.049      0.424      0.672      -0.075       0.116
+occ_cap_05_06     0.0499      0.048      1.047      0.295      -0.044       0.143
+occ_cap_07_08    -0.0600      0.050     -1.210      0.227      -0.157       0.037
+==============================================================================
+Omnibus:                      148.995   Durbin-Watson:                   2.019
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               82.711
+Skew:                           0.697   Prob(JB):                     1.10e-18
+Kurtosis:                       2.078   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0     1.00000
+dur_cap_01_02   0.0     1.00000
+dur_cap_03_04   0.0     1.00000
+dur_cap_05_06   0.0     1.00000
+dur_cap_07_08   0.0     0.07883
+occ_cap_01_02   0.0     1.00000
+occ_cap_03_04   0.0     1.00000
+occ_cap_05_06   0.0     1.00000
+occ_cap_07_08   0.0     1.00000
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              Narrative   R-squared:                       0.006
+Model:                            OLS   Adj. R-squared:                 -0.005
+Method:                 Least Squares   F-statistic:                    0.5616
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.810
+Time:                        18:07:55   Log-Likelihood:                -1005.2
+No. Observations:                 710   AIC:                             2028.
+Df Residuals:                     701   BIC:                             2069.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept      1.141e-16      0.038   3.03e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0346      0.047     -0.741      0.459      -0.126       0.057
+dur_cap_03_04    -0.0558      0.048     -1.151      0.250      -0.151       0.039
+dur_cap_05_06    -0.0147      0.047     -0.314      0.754      -0.107       0.077
+dur_cap_07_08     0.0568      0.050      1.138      0.255      -0.041       0.155
+occ_cap_01_02    -0.0004      0.047     -0.009      0.993      -0.092       0.091
+occ_cap_03_04     0.0032      0.049      0.066      0.947      -0.093       0.100
+occ_cap_05_06     0.0420      0.048      0.876      0.381      -0.052       0.136
+occ_cap_07_08    -0.0555      0.050     -1.112      0.267      -0.154       0.043
+==============================================================================
+Omnibus:                     3071.490   Durbin-Watson:                   1.957
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               67.519
+Skew:                           0.344   Prob(JB):                     2.18e-15
+Kurtosis:                       1.655   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                Purpose   R-squared:                       0.008
+Model:                            OLS   Adj. R-squared:                 -0.003
+Method:                 Least Squares   F-statistic:                    0.7362
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.660
+Time:                        18:07:55   Log-Likelihood:                -1004.5
+No. Observations:                 710   AIC:                             2027.
+Df Residuals:                     701   BIC:                             2068.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -1.878e-16      0.038  -4.99e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0228      0.047     -0.488      0.626      -0.114       0.069
+dur_cap_03_04    -0.0091      0.048     -0.187      0.851      -0.104       0.086
+dur_cap_05_06     0.0603      0.047      1.289      0.198      -0.032       0.152
+dur_cap_07_08     0.0146      0.050      0.294      0.769      -0.083       0.113
+occ_cap_01_02    -0.0403      0.047     -0.867      0.386      -0.132       0.051
+occ_cap_03_04     0.0120      0.049      0.244      0.807      -0.084       0.108
+occ_cap_05_06    -0.0406      0.048     -0.847      0.397      -0.135       0.054
+occ_cap_07_08    -0.0501      0.050     -1.005      0.315      -0.148       0.048
+==============================================================================
+Omnibus:                    17662.449   Durbin-Watson:                   1.972
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               59.317
+Skew:                          -0.132   Prob(JB):                     1.32e-13
+Kurtosis:                       1.609   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Vague   R-squared:                       0.010
+Model:                            OLS   Adj. R-squared:                 -0.002
+Method:                 Least Squares   F-statistic:                    0.8405
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.567
+Time:                        18:07:55   Log-Likelihood:                -1004.1
+No. Observations:                 710   AIC:                             2026.
+Df Residuals:                     701   BIC:                             2067.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -3.036e-18      0.038  -8.08e-17      1.000      -0.074       0.074
+dur_cap_01_02    -0.0659      0.047     -1.414      0.158      -0.157       0.026
+dur_cap_03_04    -0.0607      0.048     -1.255      0.210      -0.156       0.034
+dur_cap_05_06    -0.0023      0.047     -0.049      0.961      -0.094       0.089
+dur_cap_07_08    -0.0644      0.050     -1.292      0.197      -0.162       0.033
+occ_cap_01_02     0.0657      0.047      1.413      0.158      -0.026       0.157
+occ_cap_03_04     0.0496      0.049      1.010      0.313      -0.047       0.146
+occ_cap_05_06     0.0089      0.048      0.185      0.853      -0.085       0.103
+occ_cap_07_08     0.0160      0.050      0.321      0.748      -0.082       0.114
+==============================================================================
+Omnibus:                      185.562   Durbin-Watson:                   1.923
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               74.392
+Skew:                           0.616   Prob(JB):                     7.01e-17
+Kurtosis:                       2.002   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Fragment   R-squared:                       0.004
+Model:                            OLS   Adj. R-squared:                 -0.007
+Method:                 Least Squares   F-statistic:                    0.3880
+Date:                Tue, 18 May 2021   Prob (F-statistic):              0.927
+Time:                        18:07:55   Log-Likelihood:                -1005.9
+No. Observations:                 710   AIC:                             2030.
+Df Residuals:                     701   BIC:                             2071.
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept     -8.197e-17      0.038  -2.17e-15      1.000      -0.074       0.074
+dur_cap_01_02    -0.0088      0.047     -0.189      0.851      -0.101       0.083
+dur_cap_03_04    -0.0397      0.048     -0.819      0.413      -0.135       0.056
+dur_cap_05_06    -0.0177      0.047     -0.377      0.706      -0.110       0.074
+dur_cap_07_08     0.0185      0.050      0.371      0.711      -0.080       0.117
+occ_cap_01_02     0.0312      0.047      0.670      0.503      -0.060       0.123
+occ_cap_03_04     0.0642      0.049      1.305      0.192      -0.032       0.161
+occ_cap_05_06     0.0174      0.048      0.362      0.717      -0.077       0.112
+occ_cap_07_08     0.0243      0.050      0.486      0.627      -0.074       0.122
+==============================================================================
+Omnibus:                       90.808   Durbin-Watson:                   1.857
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               87.642
+Skew:                           0.792   Prob(JB):                     9.31e-20
+Kurtosis:                       2.328   Cond. No.                         2.69
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+               Sig.  p_adjusted
+Intercept       0.0         1.0
+dur_cap_01_02   0.0         1.0
+dur_cap_03_04   0.0         1.0
+dur_cap_05_06   0.0         1.0
+dur_cap_07_08   0.0         1.0
+occ_cap_01_02   0.0         1.0
+occ_cap_03_04   0.0         1.0
+occ_cap_05_06   0.0         1.0
+occ_cap_07_08   0.0         1.0
+Bonferroni corrected alpha (0.05): 0.005555555555555556
+
