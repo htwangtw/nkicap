@@ -116,12 +116,12 @@ if __name__ == "__main__":
     mriq = data.load("mriq_").apply(zscore)  # independent
     dataset = pd.concat([mriq, diff, dur, occ], axis=1)
 
-    with open('results/mmr/cap_dur/univeriate_report.txt', 'w') as f:
+    with open("results/mmr/cap_dur/univeriate_report.txt", "w") as f:
         sys.stdout = f
         _ = mmr_with_fig(mriq, dur, dataset, "results/mmr/cap_dur")
-    with open('results/mmr/cap_dur/univeriate_report.txt', 'w') as f:
+    with open("results/mmr/cap_dur/univeriate_report.txt", "w") as f:
         sys.stdout = f
         _ = mmr_with_fig(mriq, occ, dataset, "results/mmr/cap_occ")
-    with open('results/mmr/cap_dur/univeriate_report.txt', 'w') as f:
+    with open("results/mmr/cap_dur/univeriate_report.txt", "w") as f:
         sys.stdout = f
         _ = mmr_with_fig(mriq, diff, dataset, "results/mmr/cap_diff")
