@@ -5,9 +5,7 @@ import pandas as pd
 import numpy as np
 import nibabel as nb
 from nilearn import plotting
-import os
 
-os.chdir("C:\\Users\\bront\\OneDrive\\Documents\\PhD\\Projects\\caps\\nkicap")
 
 # load CAP data & select only the relevant columns (i.e., remove index column)
 cap_data = pd.read_csv("data/enhanced_nki/desc-cap_groupmap.tsv", sep="\t")
