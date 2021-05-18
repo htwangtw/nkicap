@@ -11,7 +11,7 @@ from nilearn import plotting
 cap_data = pd.read_csv("data/enhanced_nki/desc-cap_groupmap.tsv", sep="\t")
 
 # reset index to be first column which is numbers 1-1054 for cap data
-caps = cap_data.set_index('Unnamed: 0')
+caps = cap_data.set_index("Unnamed: 0")
 
 # load combined atlas
 com = nb.load("data/parcellations/SchaeferTian_combined_MNI152_2mm.nii.gz")
@@ -20,7 +20,7 @@ com = nb.load("data/parcellations/SchaeferTian_combined_MNI152_2mm.nii.gz")
 com_atlas = com.get_fdata()
 
 # store unique numbers from com_atlas as com_parcels
-com_parcels = (np.unique(com_atlas))
+com_parcels = np.unique(com_atlas)
 # remove first row as it is zero
 com_parcels = np.delete(com_parcels, (0), axis=0)
 # convert to integer for loop below
@@ -41,11 +41,10 @@ for cap in caps:
         new_nifti_data[mask] = current_number
 
     # for each cap, plot nifti and save to results
-    plotting.plot_stat_map(nb.Nifti1Image(new_nifti_data, header=com.header, 
-                                          affine=com.affine),
-                                          title="Combined_{}".format(cap))
+    plotting.plot_stat_map(
+        nb.Nifti1Image(new_nifti_data, header=com.header, affine=com.affine),
+        title="Combined_{}".format(cap),
+    )
     plotting.show()
-    nifti = nb.Nifti1Image(new_nifti_data,
-                           header=com.header,
-                           affine=com.affine)
-    nb.save(nifti, 'results/cap_nifti/group_{}.nii.gz'.format(cap))
+    nifti = nb.Nifti1Image(new_nifti_data, header=com.header, affine=com.affine)
+    nb.save(nifti, "results/cap_nifti/group_{}.nii.gz".format(cap))
