@@ -5,46 +5,49 @@ import pandas as pd
 import numpy as np
 import nibabel as nb
 from nilearn import plotting
+import os
 
-# load in CAP data and select only the relevant columns (i.e., remove index column)
+os.chdir("C:\\Users\\bront\\OneDrive\\Documents\\PhD\\Projects\\caps\\nkicap")
+
+# load CAP data & select only the relevant columns (i.e., remove index column)
 cap_data = pd.read_csv("data/enhanced_nki/desc-cap_groupmap.tsv", sep="\t")
 
 # reset index to be first column which is numbers 1-1054 for cap data
 caps = cap_data.set_index('Unnamed: 0')
-caps.index.names = ['Index'] #rename to be called index
 
 # load combined atlas
-combined = nb.load("data/parcellations/SchaeferTian_combined_MNI152_2mm.nii.gz")
+com = nb.load("data/parcellations/SchaeferTian_combined_MNI152_2mm.nii.gz")
 
 # get data from combined atlas
-com_atlas = combined.get_fdata()
+com_atlas = com.get_fdata()
 
 # store unique numbers from com_atlas as com_parcels
 com_parcels = (np.unique(com_atlas))
 # remove first row as it is zero
 com_parcels = np.delete(com_parcels, (0), axis=0)
-# remove rows after 1054 as we don't have corresponding CAP data 
-com_parcels = np.delete(com_parcels, slice(1054,1080), axis =  0)
 # convert to integer for loop below
 com_parcels = com_parcels.astype(int)
 
 # create new nifti shape using np.zeros to be the same shape as combined atlas
-new_nifti_data = np.zeros(combined.shape)
+new_nifti_data = np.zeros(com.shape)
 
-# loop over each column in caps to create nifti for each CAP and save to results
+# loop over each caps column to create nifti for each CAP and save to results
 for cap in caps:
     # loop over each parcel number in com_parcels
     for parcel in com_parcels:
         # create mask for that parcel
-        mask = np.where(com_atlas==parcel, True, False)
+        mask = np.where(com_atlas == parcel, True, False)
         # retrieve cap value
-        current_number = caps[cap].loc[parcel] 
+        current_number = caps[cap].loc[parcel]
         # replace mask values with cap value
         new_nifti_data[mask] = current_number
 
     # for each cap, plot nifti and save to results
-    plotting.plot_stat_map(nb.Nifti1Image(new_nifti_data, header=combined.header, affine=combined.affine), title="Combined_{}".format(cap))
+    plotting.plot_stat_map(nb.Nifti1Image(new_nifti_data, header=com.header, 
+                                          affine=com.affine),
+                                          title="Combined_{}".format(cap))
     plotting.show()
-    nifti = nb.Nifti1Image(new_nifti_data, header=combined.header, affine=combined.affine)
-    nb.save(nifti, 'data/combined_atlas_{}.nii.gz'.format(cap))
-
+    nifti = nb.Nifti1Image(new_nifti_data,
+                           header=com.header,
+                           affine=com.affine)
+    nb.save(nifti, 'results/cap_nifti/group_{}.nii.gz'.format(cap))
