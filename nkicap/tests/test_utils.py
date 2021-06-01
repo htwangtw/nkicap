@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from ..utils import Data, get_project_path, read_tsv
+from ..utils import Data, get_project_path, read_tsv, load_transition_mat
 from .utils import get_test_data_path
 
 testdata = Path(get_test_data_path()) / "file.tsv"
@@ -40,3 +40,10 @@ def test_read_tsv():
     pytest.raises(ValueError, read_tsv, testcsv, index_col=0)
     pytest.warns(UserWarning, read_tsv, testcsv)
     pytest.raises(Exception, read_tsv, testcsv, sep=",")
+
+def test_load_transition_mat():
+    """Load the correct size and subject."""
+    trans_mat = load_transition_mat()
+    n_cap = 8
+    n_subjects = 721
+    assert trans_mat.shape == (n_subjects, n_cap * (n_cap - 1))
