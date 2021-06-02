@@ -37,12 +37,12 @@ def load_transition_mat():
 def restore_transition_mat(transition_data, n_cap=8):
     """Restore transition matrix from the flatten state."""
     cap_label = [f"cap{i + 1:02d}" for i in range(n_cap)]
-    col_names = transition_data.columns
+    col_names = transition_data.index
     restored = np.zeros((n_cap, n_cap))
     for name in col_names:
         i, j = [int(item) - 1 for item in re.findall("cap0([\d])", name)]
         restored[i, j] = transition_data[name]
     restored = pd.DataFrame(np.array(restored),
                     columns=cap_label,
-                    index=[f"From: {l}" for l in cap_label])
+                    index=cap_label)
     return restored
