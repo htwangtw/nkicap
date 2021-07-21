@@ -112,7 +112,7 @@ def _check_tsv(df):
     return df
 
 
-def read_tsv(filename, **kargs):
+def read_tsv(filename, **args):
     """
     Read tsv file
 
@@ -124,8 +124,8 @@ def read_tsv(filename, **kargs):
     **kargs:
         other inputs pass to panda.read_csv
     """
-    if kargs.get("sep", False):
+    if args.get("sep", False):
         raise Exception("There's not need to provide input for `sep`.")
 
-    df = pd.read_csv(filename, sep="\t", **kargs)
+    df = pd.read_csv(filename, sep="\t", **args)
     return _check_tsv(df)
