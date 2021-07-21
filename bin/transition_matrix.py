@@ -70,45 +70,49 @@ for comp in range(latent_dims):
     plt.figure()
     sns.heatmap(restored, center=0, cmap="RdBu_r", square=True)
     plt.title(f"Mode {comp + 1} (CC={can_corr[comp]})")
-    plt.ylabel("To")
-    plt.xlabel("From")
+    plt.ylabel("From")
+    plt.xlabel("To")
     plt.savefig(get_project_path() / f"results/transition_matrix/mode{comp + 1: 02d}_cap-transition.png")
+    restored.to_csv(f"results/transition_matrix/cap_transition_mode_{comp + 1}.tsv", sep='\t')
 
-plt.figure(figsize=(13, 7))
-sns.heatmap(thoughts_cca, center=0, cmap="RdBu_r", square=True)
-plt.title(f"MRIQ")
-plt.savefig(get_project_path() / f"results/transition_matrix/mriq.png")
+    plt.figure(figsize=(5, 7))
+    sns.heatmap(thoughts_cca.loc[:, [f'Mode {comp + 1}']], center=0, cmap="RdBu_r", square=True)
+    plt.title(f"Mode {comp + 1} (CC={can_corr[comp]})")
+    plt.savefig(get_project_path() / f"results/transition_matrix/mode{comp + 1: 02d}_mriq.png")
+    thoughts_cca.loc[:, [f'Mode {comp + 1}']].to_csv(f"results/transition_matrix/cap_thoughts_mode_{comp + 1}.tsv", sep='\t')
 
 # permutation testing from
 # https://github.com/andersonwinkler/PermCCA/blob/6098d35da79618588b8763c5b4a519438703dba4/permcca.m#L131-L164
 
-n_permutation = 1000
-rng = np.random.RandomState(42)
-lW, cnt  = np.zeros(latent_dims), np.zeros(latent_dims)
-for i in range(n_permutation):
-    print(f"Permutation {1 + i} / {n_permutation} ")
-    if i == 0:
-        X_perm = z_transitions
-        Y_perm = z_mriq
-    else:
-        x_idx = rng.permutation(710)
-        y_idx = rng.permutation(710)
-        X_perm = z_transitions[x_idx]
-        Y_perm = z_mriq[y_idx]
-    for k in range(latent_dims):
-        if (latent_dims - k) >= min(trained_c) ** 2:  # limitation of PMD
-            print(f"Mode {1 + k} of {latent_dims}")
-            perm_model = PMD(c=trained_c,
-                             latent_dims=(latent_dims - k),
-                             max_iter=100)
-            perm_model.fit(X_perm[:, k:], Y_perm[:, k:])
-            r_perm = perm_model.train_correlations[0][1]
-            lWtmp = -np.cumsum(np.log(1 - r_perm ** 2)[::-1])[::-1]
-            lW[k] = lWtmp[0]
-    if i == 0:
-        lw1 = lW
-    cnt = cnt + (lW >= lw1)
+# n_permutation = 2
+# rng = np.random.RandomState(42)
+# lW, cnt  = np.zeros(latent_dims), np.zeros(latent_dims)
+# for i in range(n_permutation):
+#     print(f"Permutation {1 + i} / {n_permutation} ")
+#     if i == 0:
+#         X_perm = z_transitions
+#         Y_perm = z_mriq
+#     else:
+#         x_idx = rng.permutation(710)
+#         y_idx = rng.permutation(710)
+#         X_perm = z_transitions[x_idx]
+#         Y_perm = z_mriq[y_idx]
+#     for k in range(latent_dims):
+#         print(f"Mode {1 + k} of {latent_dims}")
+#         perm_model = PMD(c=trained_c,
+#                             latent_dims=(latent_dims - k),
+#                             max_iter=100)
+#         perm_model.fit(X_perm[:, k:], Y_perm[:, k:])
+#         r_perm = perm_model.train_correlations[0][1]
+#         print(r_perm)
+#         lWtmp = -1 * np.cumsum(np.log(1 - r_perm ** 2)[::-1])[::-1]
+#         print(lWtmp)
+#         lW[k] = lWtmp[0]
+#     if i == 0:
+#         lw1 = lW
+#     cnt = cnt + (lW >= lw1)
 
-punc  = cnt / n_permutation
-pfwer = pd.DataFrame(punc).cummax().values
-print(pfwer)
+# punc  = cnt / n_permutation
+# pfwer = pd.DataFrame(punc).cummax().values
+# print(punc)
+# print(pfwer)
